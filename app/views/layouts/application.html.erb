@@ -1,14 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hts</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>
+		<% if @title %>
+			<%=@title %> - Herr Tool Sales Inc.
+		<% else %>
+			Herr Tool Sales, Inc.
+		<% end %>
+	</title>
+
+  	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag 'main' %>
+
+	<%= stylesheet_link_tag "application", :media => "all" %>
+
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+	<%= csrf_meta_tags %>
 </head>
 <body>
+	<script type="text/javascript">
+		$(function() {
+			init();
+		});
+	</script>
 
-<%= yield %>
+	<div id="dialog" style="display: none;">
+		<div id="dialogContent"></div>
+	</div>
+
+	<center>
+		<div id="container">
+			<div id="mainContainer">				
+				<div id="header">
+					<div id="search">
+						<%= form_tag('/productSearch') %>
+							Search Products
+							<%=text_field :main, :search, :class => 'searchInput' %>
+							<%=submit_tag "Go", :class => 'searchButton' %>
+						</form>
+					</div>
+					<div id="title">
+						<%=@title %>
+						<% if (@category) %>
+							- <%=@category.name %>
+						<% end %>
+					</div>
+					<div id="titleEnd"></div>
+				</div>
+				<div id="body">
+					<div id="menu">
+						<div id="contents">
+							<a href="<%= url_for '/' %>"><div class="button">Home</div></a>
+							<a href="<%= url_for '/categoryList' %>"><div class="button">Products</div></a>
+							<a href="<%= url_for '/companyProfile' %>"><div class="button">Company Profile</div></a>
+							<a href="<%= url_for '/contactUs' %>"><div class="button">Contact Us</div></a>
+							<a href="<%= url_for new_quote_request_path %>"><div class="button">Request Quote</div></a>
+							
+							<% if logged_in? %>
+								<br />
+								
+								<a href="<%= url_for '/categories' %>"><div class="button admin">Categories</div></a>
+								<a href="<%= url_for '/quote_requests' %>"><div class="button admin">View Requests</div></a>
+							<% end %>
+						</div>
+					</div>
+					<div id="main">
+						
+						<% if flash[:notice] %>
+							<div id="message">
+								<%= flash[:notice] %>
+							</div>
+						<% else %>
+							<div id="message" style="display: none;"></div>
+						<% end %>
+				
+						<%= yield  %>
+				
+					</div>
+				</div>
+			
+				<div id="footer">
+					<div class="text">
+						<% if logged_in? %>
+							<%= link_to "Logout", '/logout' %>
+						<% else %>
+							<%= link_to "Login", new_session_path, :remote => true %>						
+						<% end %>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</center>
+
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-4147404-1");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+	</script>
 
 </body>
 </html>

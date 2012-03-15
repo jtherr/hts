@@ -2,6 +2,26 @@ Hts::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  root :to => 'main#index'
+  
+  match 'productsMain' => 'main#productsMain'
+  match 'companyProfile' => 'main#companyProfile'
+  match 'contactUs' => 'main#contactUs'
+
+  match 'categoryList' => 'categories#categoryList'
+  match 'logout' => 'sessions#destroy'
+  match 'productSearch' => 'products#search'
+  match 'categories/updateOrder' => 'categories#updateOrder'
+  match 'products/updateOrder' => 'products#updateOrder'
+
+  resources :quote_requests, :sessions, :news_items, :products
+
+  resources :categories do
+    resources :products
+  end
+  
+
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -55,4 +75,5 @@ Hts::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end
