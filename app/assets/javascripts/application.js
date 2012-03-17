@@ -23,8 +23,6 @@ function init() {
 		modal: true
 	});
 	
-	initButtons();
-	
 	var sortableHelper = function(e, ui) {
     	ui.children().each(function() {
     	    $(this).width($(this).width());
@@ -45,20 +43,24 @@ function init() {
 		initButtons();
 	})
 
-	
-	
-	initAdd();
-	initEdit();
-	initDelete();	
+	initActions();
+	initButtons();
 }
 
 function openDialog(title) {
 	$("#dialog").dialog("open");
 	$("#dialog").dialog("option", "title", title);
+	initButtons();
 }
 
 function closeDialog() {
 	$("#dialog").dialog("close");
+}
+
+function initActions() {
+	initAdd();
+	initEdit();
+	initDelete();
 }
 
 function initAdd() {
@@ -87,6 +89,7 @@ function initDelete() {
 	$('.delete').click(function() {
 		if (confirm('Are you sure?')) {
 			var update = '#' + $(this).data('update');
+			var objectName = $(this).data('object-name');
 			
 			$.ajax({
 				url: $(this).data('request-path'),
@@ -97,6 +100,8 @@ function initDelete() {
 				},
 				success: function(html) {
 					$(update).html(html);
+					displayMessage(objectName + ' Deleted');
+					initActions();
 				}
 			});
 		}
@@ -107,4 +112,9 @@ function initDelete() {
 function initButtons() {
 	$('input[type=submit]').button();
 	$('input[type=button]').button();	
+}
+
+function displayMessage(message) {
+	$('#messageContent').html(message);
+	$('#message').show();
 }

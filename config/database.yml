@@ -22,10 +22,11 @@ test:
   username: hts
   password: HaL1@m
 
-production:
+production:  
   adapter: postgresql
   encoding: unicode
-  database: herrtoolsales
+  database: pfofiiyogh
   pool: 5
-  username: hts
-  password: HaL1@m
+  host: ec2-50-19-213-77.compute-1.amazonaws.com
+  username: pfofiiyogh
+  password: JNZ9d-HivbscQsXX5P8a

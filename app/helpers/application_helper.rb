@@ -2,7 +2,11 @@
 module ApplicationHelper
   
   def submitLabel(record)
-    record.new_record? ? 'Add' : 'Update'
+    record.new_record? ? 'Create' : 'Update'
+  end
+  
+  def actionLabel()
+    controller.action_name == "create" ? 'Created' : 'Updated'
   end
   
 end
