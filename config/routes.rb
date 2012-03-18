@@ -14,7 +14,7 @@ Hts::Application.routes.draw do
   match 'categories/updateOrder' => 'categories#updateOrder'
   match 'products/updateOrder' => 'products#updateOrder'
 
-  resources :quote_requests, :sessions, :news_items, :products
+  resources :quote_requests, :sessions, :news_items, :products, :users
 
   resources :categories do
     resources :products
