@@ -2,7 +2,7 @@ class MainController < ApplicationController
   def index
     @products = Product.premier
     @news_items = NewsItem.find(:all)
-    @title = "Welcome";
+    @title = "Welcome"
   end
   
   def contactUs
