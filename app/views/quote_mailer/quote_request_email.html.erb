@@ -1,68 +1,59 @@
-
-<div style="border: black solid 1px; margin-bottom: 10px; font-size: 12px; float: left; width: 570px;">
-	
-	<div style="width: 100%; margin-bottom: 4px; background-color: #0072BC; color: white; font-size: 16px; float: left; font-weight: bold;">
-		<div style="padding: 2px; float: left;"><%=@quote_request.name %></div>
-		<div style="padding: 2px; float: right;"><%=@quote_request.date.to_date.to_formatted_s(:long_ordinal) %></div>
+<div style="display: block; width: 100%; padding-bottom: 4px; float: left;  border-bottom: #C0C0C0;">
+	<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Name</label>
+	<div style="float: left; width: 400px; padding-bottom: 2px;">
+		<%=@quote_request.name %>
 	</div>
-	
-	
-	<div style="display: block; width: 100%; padding-bottom: 4px; float: left;">
-		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Company:</label>
-		<div style="float: left; width: 400px; padding-bottom: 2px;">
-			<%=@quote_request.company %>
-		</div>
-	</div>
-	
-	
-	<% if !@quote_request.street.blank? || !@quote_request.city.blank? || !@quote_request.state.blank? || !@quote_request.zip.blank? %>
-		<div style="display: block; width: 100%; padding-bottom: 4px; float: left;">
-			<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Address:</label>
-			<div style="float: left; width: 400px; padding-bottom: 2px;">
-				<%=@quote_request.street %>
-				<% if !@quote_request.city.blank? || !@quote_request.state.blank? || !@quote_request.zip.blank? %><br /><% end %>
-				<%=@quote_request.city %>
-				<% if !@quote_request.state.blank? %>, <% end %>
-				<%=@quote_request.state %>
-				<% if !@quote_request.zip.blank? || !@quote_request.city.blank? %> <% end %>
-				<%=@quote_request.zip %>
-			</div>
-		</div>
-	<% end %>
-
-	<div style="display: block; width: 100%; padding-bottom: 4px; float: left;">
-		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Phone:</label>
-		<div style="float: left; width: 400px; padding-bottom: 2px;">
-			<%=@quote_request.phone %>
-		</div>
-	</div>
-	
-	<% if !@quote_request.fax.blank? %>
-		<div style="display: block; width: 100%; padding-bottom: 4px; float: left;">
-			<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Fax:</label>
-			<div style="float: left; width: 400px; padding-bottom: 2px;">
-				<%=@quote_request.fax %>
-			</div>
-		</div>
-	<% end %>
-	
-	<% if !@quote_request.email.blank? %>
-		<div style="display: block; width: 100%; padding-bottom: 4px; float: left;">
-			<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Email:</label>
-			<div style="float: left; width: 400px; padding-bottom: 2px;">
-				<%=mail_to @quote_request.email %>
-			</div>
-		</div>
-	<% end %>
-
-	<% if !@quote_request.additional.blank? %>
-		<div style="display: block; width: 100%; padding-bottom: 4px; float: left;">
-			<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Additional:</label>
-			<div style="float: left; width: 400px; padding-bottom: 2px;">
-				<%=@quote_request.additional %>
-			</div>
-		</div>
-	<% end %>
-	
 </div>
 
+<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
+	<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Company</label>
+	<div style="float: left; width: 400px; padding-bottom: 2px;">
+		<%=@quote_request.company %>
+	</div>
+</div>
+
+<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
+	<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Phone</label>
+	<div style="float: left; width: 400px; padding-bottom: 2px;">
+		<%=@quote_request.phone %>
+	</div>
+</div>
+
+<% if !@quote_request.fax.blank? %>
+	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
+		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Fax</label>
+		<div style="float: left; width: 400px; padding-bottom: 2px;">
+			<%=@quote_request.fax %>
+		</div>
+	</div>
+<% end %>
+
+<% if !@quote_request.email.blank? %>
+	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
+		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Email</label>
+		<div style="float: left; width: 400px; padding-bottom: 2px;">
+			<%=mail_to @quote_request.email %>
+		</div>
+	</div>
+<% end %>
+
+<% if !@quote_request.street.blank? || !@quote_request.city.blank? || !@quote_request.state.blank? || !@quote_request.zip.blank? %>
+	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
+		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Address</label>
+		<div style="float: left; width: 400px; padding-bottom: 2px;">
+			<%=@quote_request.street %>
+			<% if !@quote_request.city.blank? || !@quote_request.state.blank? || !@quote_request.zip.blank? %><br /><% end %>
+			<%=@quote_request.city %><% if !@quote_request.city.blank? && !@quote_request.state.blank? %>, <% end %>
+			<%=@quote_request.state %> <%=@quote_request.zip %>
+		</div>
+	</div>
+<% end %>
+
+<% if !@quote_request.additional.blank? %>
+	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
+		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Additional</label>
+		<div style="float: left; width: 400px; padding-bottom: 2px;">
+			<%=@quote_request.additional %>
+		</div>
+	</div>
+<% end %>
