@@ -1,0 +1,126 @@
+body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; }
+
+#container { width: 750px; text-align: left; }
+
+#mainContainer { float: left; width: 750px;  }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+table tr { background-color: #D7E2F0; }
+table tr th { padding: 3px 10px 3px 3px; background-color: white; }
+table tr td { padding: 3px 10px 3px 3px; border-bottom: 1px solid white; }
+table tr td.date { width: 120px; }
+table tr td.icon { width: 16px; }
+
+table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
+
+
+.newLink { float: right; text-align: right; font-size: 12px; font-weight: normal; font-style: normal; margin-bottom: 5px; }
+
+.add.ui-icon, .edit.ui-icon, .delete.ui-icon { cursor: pointer; }
+.handle.ui-icon { cursor: move; }
+
+.categoryLinks { font-size: 12px; text-align: center; margin-top: 4px; }
+
+
+
+.field { width: 100%; float: left; margin: 5px 0px; }
+.field label { font-weight: bold; float: left; width: 150px; }
+.field .value { float: left; }
+.field .field_with_errors { float: left; }
+.field .required { float: left; color: red; padding: 4px 0px 0px 10px;  }
+
+.errors { margin-bottom: 10px; }
+.errors .ui-state-error p { margin: 5px; }
+
+#message { margin-bottom: 10px; }
+.ui-state-highlight p { margin: 5px; }
+
+
+#dialogContent { font-size: 12px; }
+#dialogContent .field label { width: 100px; }
+
+.line { float: left; width: 100%; margin: 10px 0px; background-color: #C0C0C0; height: 1px; }
+
+
+
+#container #header { background:  url('/assets/header.gif') no-repeat; height: 144px; }
+
+#container #header #search { height: 111px; float: right; text-align: right; margin: 3px 3px 0px 0px; color: white; font-size: 12px; width: 100%; }
+*+html #container #header #search form { margin-right: 3px; }
+#container #header #search .searchInput { width: 100px; }
+#container #header #search .searchButton { font-size: 11px; padding: 1px; }
+
+#container #header #title { background:  url('/assets/titleMain.gif') repeat; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: italic; font-weight: bold; font-size: 18px; float: left; color: white; padding: 5px 5px 0px 10px; background-color: #790000; height: 25px; margin-left: 150px; }
+#container #header #titleEnd { float: left; background:  url('/assets/titleEnd.gif') no-repeat; width: 30px; height: 30px; }
+
+#container #body { background: url('/assets/menu.gif') repeat-y; float: left; }
+
+#container #body #main #premierProducts .instructions { background-color: #790000; color: white; width: 100%; font-weight: bold; font-size: 12px; text-align: center; }
+
+#container #body #menu { width: 118px; float: left; }
+#container #body #menu #contents { margin: 20px 0px 20px 0px; color: white; }
+#container #body #menu #emailIcon { background: url('/assets/email.gif') no-repeat; width: 96px; height: 64px; margin: 15px 0px 0px 8px; float: left; cursor: pointer; }
+#container #body #menu #emailText { float: left; color: white; padding: 0px 0px 0px 30px; font-size: 12px; font-weight: bold; cursor: pointer; text-decoration: none; }
+
+#container #body #menu #contents a { text-decoration: none; }
+#container #body #menu #contents .button { text-decoration: none; font-size: 14px; width: 107px; padding: 4px 2px 1px 4px; height: 20px; background-color: #0072BC; margin-top: 2px; color: white; border-top: solid gray 1px; border-bottom: solid black 1px; }
+#container #body #menu #contents .button.admin { background-color: #790000; }
+#container #body #menu #contents .button:hover { text-decoration: none; cursor: pointer; background-color: #004477; border-top: solid black 1px; border-bottom: solid gray 1px; }
+#container #body #menu #contents .button.admin:hover { background-color: #440000; }
+
+#container #main { padding: 10px; width: 611px; border-right: solid black 1px; float: left; height: auto !important; min-height: 335px; height: 335px; }
+
+#container #footer { background: url('/assets/footer.gif') no-repeat; width: 750px; height: 64px; float: left; }
+#container #footer .text { padding: 45px 0px 0px 120px; color: white; text-align: center; font-size: 12px; }
+#container #footer .text a { color: white; }
+
+#container .subTitle { color: #000099; padding: 0px 0px 15px 0px; font-size: 18px; font-style: italic; font-weight: bold; }
+
+
+#homeTop { float: left; width: 100%; }
+#homeTop #homeLeft { float: left; width: 380px; }
+#homeTop #homeLeft #welcomeStatement { float: left; width: 360px; padding: 0px 5px 20px 0px; }
+#homeTop #homeLeft #missionStatement { float: left; width: 190px; padding: 0px 20px 0px 0px; }
+
+#homeTop #homeLeft #missionStatement .statement { padding: 0px 0px 15px 20px; }
+#homeTop #homeLeft #missionStatement .right { float: right; }
+
+
+#homeTop #homeLeft .chuck { float: left; background: url('/assets/kitagawa.gif') no-repeat; width: 160px; height: 141px; margin-top: 40px; }
+#homeTop #premierProducts { float: left; width: 231px; }
+#homeTop #premierProducts .handle { width: 100%; cursor: pointer; }
+#homeTop #premierProducts .rightLink { font-size: 12px; float: right; margin-top: 10px; }
+
+#news { float: left; padding-top: 10px; margin-top: 10px; }
+
+
+#paymentTypes { float: left; padding: 20px 0px 0px 220px;  }
+#paymentTypes #visaIcon { float: left; background: url('/assets/visa.gif') no-repeat; width: 75px; height: 50px; }
+#paymentTypes #mastercardIcon { float: left; background: url('/assets/mastercard.gif') no-repeat; width: 87px; height: 56px; }
+
+
+.indent { margin-left: 20px; }
+
+#information .section { width: 200px; padding-bottom: 20px; }
+#office { float: right; margin: 40px 40px 0px 0px; background: url('/assets/office.jpg') no-repeat; width: 365px; height: 200px;}
+
+#management .sectionLeft { padding-left: 20px; float: left; }
+#management .sectionRight { padding-left: 300px; }
+#management .name { font-size: 16px; font-weight: bold; }
+
+
+.quoteRequest { margin-bottom: 20px; font-size: 11px; float: left; width: 100%; }
+.quoteRequest .date { font-size: 13px; margin-bottom: 4px; float: left; font-weight: bold; }
+.quoteRequest table td.label { font-weight: bold; width: 150px; }
+.quoteRequest .delete { float: right; padding: 2px; }
+
+
+#productsMain #left { float: left; width: 250px; }
+#productsMain #left ul { list-style: none outside none; margin: 0; padding: 0; }
+#productsMain #left ul li { font-size: 18px; padding: 0 5px 15px 25px; }
+#productsMain #left ul li a { text-decoration: none; }
+#productsMain #right { background: url('/assets/categories.gif') no-repeat; width: 339px; height: 356px; float: right; }
+
+.importantMessage { font-weight: bold; color: red; font-size: 16px; }
+
+.lowercase { text-transform: lowercase; }

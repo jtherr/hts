@@ -1,0 +1,14 @@
+<%= form_for(@category, :remote => true) do |f| %>
+	<div id="errors" class="errors" style="display: none;"></div>
+
+	<div class="field">
+		<%= f.label :name, 'Name' %>
+		<%= f.text_field :name, :class => 'short' %>
+	</div>
+
+	<div class="field">		
+		<label>&nbsp;</label>		
+		<%= f.submit submitLabel(@category) %>
+		<%= button_to_function "Cancel", "closeDialog();" %>
+	</div>
+<% end %>

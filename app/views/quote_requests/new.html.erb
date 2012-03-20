@@ -1,0 +1,76 @@
+<%= form_for @quote_request do |f| %>
+	
+	<p>
+		To request a quote, please supply us with the following information. 
+		Once we receive your request, we will contact you as soon as possible.
+	</p>
+		
+	<% if @quote_request.errors.any? %>
+		<div class="errors ui-widget">
+			<div class="ui-state-error ui-corner-all">
+				<% @quote_request.errors.full_messages.each do |msg| %>
+					<p>
+						<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+						<strong>Error:</strong> <%= msg %>
+					</p>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :name, 'Name' %>
+		<div class="value"><%= f.text_field :name %></div>
+		<span class="required">required</span>
+	</div>
+	<div class="field">
+		<%= f.label :company, 'Company' %>
+		<div class="value"><%= f.text_field :company %></div>
+		<span class="required">required</span>
+	</div>
+	<div class="field">
+		<%= f.label :phone, 'Phone' %>
+		<div class="value"><%= f.text_field :phone %></div>
+		<span class="required">required</span>
+	</div>
+	<div class="field">
+		<%= f.label :fax, 'Fax' %>
+		<%= f.text_field :fax %>
+	</div>
+	<div class="field">
+		<%= f.label :email, 'Email' %>
+		<%= f.text_field :email %>
+	</div>
+
+	<div class="line"></div>
+	
+	<div class="field">
+		<%= f.label :street, 'Street' %>
+		<%= f.text_field :street %>
+	</div>
+	<div class="field">
+		<%= f.label :city, 'City' %>
+		<%= f.text_field :city %>
+	</div>
+	<div class="field">		
+		<%= f.label :state, 'State' %>
+		<%= f.text_field :state %>
+	</div>
+	<div class="field">
+		<%= f.label :zip, 'Zip' %>
+		<%= f.text_field :zip %>
+	</div>
+	
+	<div class="line"></div>
+
+	<div class="field">
+		<%= f.label :additional, 'Additional' %>
+		<%= f.text_area :additional, :rows => 3 %>
+	</div>
+		
+	<div class="field">
+		<label>&nbsp;</label>
+		<%= f.submit "Send Request" %>
+	</div>
+
+<% end %>

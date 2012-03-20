@@ -1,0 +1,564 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.3
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-03-17 17:42:50 EDT
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 171 (class 3079 OID 11907)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2169 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 162 (class 1259 OID 16546)
+-- Dependencies: 5
+-- Name: categories; Type: TABLE; Schema: public; Owner: hts; Tablespace: 
+--
+
+CREATE TABLE categories (
+    id integer NOT NULL,
+    name text NOT NULL,
+    "position" integer
+);
+
+
+ALTER TABLE public.categories OWNER TO hts;
+
+--
+-- TOC entry 161 (class 1259 OID 16544)
+-- Dependencies: 162 5
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: hts
+--
+
+CREATE SEQUENCE categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.categories_id_seq OWNER TO hts;
+
+--
+-- TOC entry 2170 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hts
+--
+
+ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
+
+
+--
+-- TOC entry 2171 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hts
+--
+
+SELECT pg_catalog.setval('categories_id_seq', 79, true);
+
+
+--
+-- TOC entry 164 (class 1259 OID 16557)
+-- Dependencies: 5
+-- Name: news_items; Type: TABLE; Schema: public; Owner: hts; Tablespace: 
+--
+
+CREATE TABLE news_items (
+    id integer NOT NULL,
+    date timestamp without time zone,
+    description text NOT NULL
+);
+
+
+ALTER TABLE public.news_items OWNER TO hts;
+
+--
+-- TOC entry 163 (class 1259 OID 16555)
+-- Dependencies: 164 5
+-- Name: news_id_seq; Type: SEQUENCE; Schema: public; Owner: hts
+--
+
+CREATE SEQUENCE news_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.news_id_seq OWNER TO hts;
+
+--
+-- TOC entry 2172 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hts
+--
+
+ALTER SEQUENCE news_id_seq OWNED BY news_items.id;
+
+
+--
+-- TOC entry 2173 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hts
+--
+
+SELECT pg_catalog.setval('news_id_seq', 13, true);
+
+
+--
+-- TOC entry 166 (class 1259 OID 16568)
+-- Dependencies: 5
+-- Name: products; Type: TABLE; Schema: public; Owner: hts; Tablespace: 
+--
+
+CREATE TABLE products (
+    id integer NOT NULL,
+    category_id integer NOT NULL,
+    name text NOT NULL,
+    "position" integer,
+    company text NOT NULL,
+    premier boolean
+);
+
+
+ALTER TABLE public.products OWNER TO hts;
+
+--
+-- TOC entry 165 (class 1259 OID 16566)
+-- Dependencies: 5 166
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: hts
+--
+
+CREATE SEQUENCE products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.products_id_seq OWNER TO hts;
+
+--
+-- TOC entry 2174 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hts
+--
+
+ALTER SEQUENCE products_id_seq OWNED BY products.id;
+
+
+--
+-- TOC entry 2175 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hts
+--
+
+SELECT pg_catalog.setval('products_id_seq', 110, true);
+
+
+--
+-- TOC entry 168 (class 1259 OID 16579)
+-- Dependencies: 5
+-- Name: quote_requests; Type: TABLE; Schema: public; Owner: hts; Tablespace: 
+--
+
+CREATE TABLE quote_requests (
+    id integer NOT NULL,
+    name text NOT NULL,
+    phone text NOT NULL,
+    company text NOT NULL,
+    email text NOT NULL,
+    fax text,
+    street text,
+    city text,
+    state text,
+    zip text,
+    additional text,
+    date timestamp without time zone
+);
+
+
+ALTER TABLE public.quote_requests OWNER TO hts;
+
+--
+-- TOC entry 167 (class 1259 OID 16577)
+-- Dependencies: 5 168
+-- Name: quote_requests_id_seq; Type: SEQUENCE; Schema: public; Owner: hts
+--
+
+CREATE SEQUENCE quote_requests_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.quote_requests_id_seq OWNER TO hts;
+
+--
+-- TOC entry 2176 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: quote_requests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hts
+--
+
+ALTER SEQUENCE quote_requests_id_seq OWNED BY quote_requests.id;
+
+
+--
+-- TOC entry 2177 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: quote_requests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hts
+--
+
+SELECT pg_catalog.setval('quote_requests_id_seq', 25, true);
+
+
+--
+-- TOC entry 170 (class 1259 OID 16590)
+-- Dependencies: 5
+-- Name: users; Type: TABLE; Schema: public; Owner: hts; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    email text,
+    password_digest text NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO hts;
+
+--
+-- TOC entry 169 (class 1259 OID 16588)
+-- Dependencies: 170 5
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: hts
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO hts;
+
+--
+-- TOC entry 2178 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hts
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- TOC entry 2179 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hts
+--
+
+SELECT pg_catalog.setval('users_id_seq', 3, true);
+
+
+--
+-- TOC entry 2143 (class 2604 OID 16549)
+-- Dependencies: 162 161 162
+-- Name: id; Type: DEFAULT; Schema: public; Owner: hts
+--
+
+ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
+
+
+--
+-- TOC entry 2144 (class 2604 OID 16560)
+-- Dependencies: 163 164 164
+-- Name: id; Type: DEFAULT; Schema: public; Owner: hts
+--
+
+ALTER TABLE ONLY news_items ALTER COLUMN id SET DEFAULT nextval('news_id_seq'::regclass);
+
+
+--
+-- TOC entry 2145 (class 2604 OID 16571)
+-- Dependencies: 165 166 166
+-- Name: id; Type: DEFAULT; Schema: public; Owner: hts
+--
+
+ALTER TABLE ONLY products ALTER COLUMN id SET DEFAULT nextval('products_id_seq'::regclass);
+
+
+--
+-- TOC entry 2146 (class 2604 OID 16582)
+-- Dependencies: 168 167 168
+-- Name: id; Type: DEFAULT; Schema: public; Owner: hts
+--
+
+ALTER TABLE ONLY quote_requests ALTER COLUMN id SET DEFAULT nextval('quote_requests_id_seq'::regclass);
+
+
+--
+-- TOC entry 2147 (class 2604 OID 16593)
+-- Dependencies: 170 169 170
+-- Name: id; Type: DEFAULT; Schema: public; Owner: hts
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- TOC entry 2159 (class 0 OID 16546)
+-- Dependencies: 162
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: hts
+--
+
+COPY categories (id, name, "position") FROM stdin;
+44	Coolants	6
+45	Cutting Tools	5
+47	Spindle Tooling	4
+23	Machine Tools	1
+42	Precision Measuring Tools	3
+40	Machine Tool Accessories	2
+35	Workholding & Indexing	0
+\.
+
+
+--
+-- TOC entry 2160 (class 0 OID 16557)
+-- Dependencies: 164
+-- Data for Name: news_items; Type: TABLE DATA; Schema: public; Owner: hts
+--
+
+COPY news_items (id, date, description) FROM stdin;
+1	2008-03-21 00:00:00	We are now offering Bridgeport Machine Tools and Lista Cabinets.
+2	2004-04-19 00:00:00	Herr Tool Sales is proud to announce the addition of the Master Chemical top quality line of coolants, cutting oils, machine cleaners and equipment.
+3	2009-03-22 00:00:00	NSK America is continuing to expand their product line of precision high speed spindles
+\.
+
+
+--
+-- TOC entry 2161 (class 0 OID 16568)
+-- Dependencies: 166
+-- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: hts
+--
+
+COPY products (id, category_id, name, "position", company, premier) FROM stdin;
+5	35	Quick Change Collet Chucks, Precision Air Chucks	5	MicroCentric	f
+7	35	High Precision Air Chucks	7	Northfield	f
+8	35	Power Chucks and Cylinders	8	SP	f
+10	35	Manual and Power Chucks	2	Buck Chucks	f
+11	35	Power Chucks and Cylinders	11	Kitagawa	f
+12	35	Power Chucks and Cylinders	12	Matsumoto	f
+13	35	Chucks, Pallet Changers, Bar Feeds	13	SMW	f
+14	35	Manual and Automatic Steady Rests	14	Steady Rests	f
+15	35	Pallet Systems	15	Midaco	f
+16	35	Top Jaws, Chucks, Cylinders	16	Huron	f
+17	35	Chucks and Cylinders	17	Howa	f
+18	35	Hard and Soft Jaws	18	Dillon	f
+20	35	Hard and Soft Jaws	20	Daco	f
+21	35	Clamp Systems	21	Mitee Bite	f
+22	35	Collets and Tooling	22	Somma Balas	f
+24	35	Anglock and DoubleLock Vises	24	Kurt	f
+26	35	Rotary Tables	26	Troyke	f
+27	35	Magnetic Chucks	27	O.S. Walker	f
+28	35	Bar Feed Systems	28	LNS America	f
+29	35	Custom Machining Center Fixtures	29	WMCF	f
+30	35	Special ID and OD Collet Chucks	30	HXT Systems	f
+32	35	Tombstones	32	Midstate Machine	f
+35	23	Precision Lathes	35	Harrison	f
+36	23	Bandsaws, Ironworkers	36	Marvel	f
+37	23	Machine Tools	37	Clausing	f
+38	23	Machine Tools	38	Sharp Industries	f
+39	23	Wire and Sink EDM\\s	39	Sodick	f
+41	23	Precision Lathes	41	Nardini	f
+42	23	Lathes, Mills, Grinders	42	Acer	f
+43	23	Machine Tools	43	Willis	f
+44	23	Contour Grinders	44	Wasino	f
+45	23	Presses and Cutoff Saws	45	Dake	f
+46	23	Machine Tools	46	Summit	f
+47	47	Live Tools	47	Bristol Tools	f
+48	47	Keyless Drill Chucks	48	Albrecht	f
+49	47	Drill chucks	49	Jacobs	f
+50	47	V Flange, Drill and Tap Holders	50	Collis	f
+52	47	V-Flange Tooling	52	Command	f
+54	47	V Flange Tooling	54	Tecnara	f
+55	47	CNC and VDI Tooling	55	Techleader	f
+56	35	Tsudakoma Rotary Tables	56	Koma Precision	f
+57	40	Machine Tool Accessories	57	Royal	f
+58	35	Rotary Tables and Indexers	58	Haas	f
+59	40	Tool Presetters	59	Lyndex	f
+60	40	Digital Readout Systems	60	Mititoyo	f
+61	40	Digital Readout Systems	61	Acu-Rite	f
+62	40	VDI Tooling, Bushings, Sleeves	62	CNC	f
+63	40	Power Feeds	63	Servo	f
+64	40	Chip Conveyor Systems	64	Mayfran	f
+65	40	Chip Conveyor Systems	65	Turbo	f
+66	35	Chip Conveyor Systems	66	Jorgenson	f
+67	40	Boring Heads	67	Criterion	f
+68	35	Modular Fixturing	68	Stevens	f
+69	40	Quick Change Tool Posts	69	Aloris	f
+70	40	Grinding Wheel Adapters	70	Sopko	f
+71	40	Static and Live Tooling	71	VDI	f
+72	35	Live and Dead Centers	72	Riten	f
+74	45	Indexable Threading and Thread Milling	74	Duramet	f
+75	45	Special Taps and Gages	75	N. American	f
+76	45	HSS and Carbide Coolant Fed Reamers	76	Metcut/Barber Coleman	f
+77	45	End Cutting Tools, Counterbores, Countersinks	77	Metcut/Eclipse	f
+78	45	Indexable Carbide Milling Roughers	78	Triphase	f
+79	45	Indexable Carbide Grooving	79	Allied Tool	f
+80	45	Indexable Threading and Thread Milling	80	Vardex	f
+81	23	Bandsaws	81	Cosan	f
+82	42	Precision Measuring Tools	82	Brown and Sharpe	f
+83	42	Precision Measuring Tools	83	Starrett	f
+84	42	Precision Measuring Tools	84	Fowler	f
+85	42	Precision Measuring Tools	85	Flexbar	f
+6	35	Used, New	5	HTS	t
+33	23	CNC Mills and Lathes	33	Fryer Machines	f
+2	47	V-Flange, Collets and Custom Tools	6	Lyndex Nikken	t
+102	40	High Speed Spindles	8	NSK America	t
+51	23	Coordinate Measuring Machines	0	Brown and Sharpe	t
+73	45	Carbide, Cermets, Ceramics	1	Kyocera and Ceratip	t
+40	23	Drill and Tool Grinders	9	Rush Machinery	t
+97	23	Vertical Milling Machines	7	Bridgeport Machine Tools	t
+108	45	dfsdfsd	\N	fsdfsd	f
+9	35	Power Chucks, Cylinders, Steady Rests	10	SMW Autoblok	t
+110	35	DSFSsd	2	CSVSD	t
+101	44	Coolants, Machining Oils, Cleaners, Equipment	3	Master Chemical	t
+25	35	Original 2 Station Vises	4	Chick	t
+\.
+
+
+--
+-- TOC entry 2162 (class 0 OID 16579)
+-- Dependencies: 168
+-- Data for Name: quote_requests; Type: TABLE DATA; Schema: public; Owner: hts
+--
+
+COPY quote_requests (id, name, phone, company, email, fax, street, city, state, zip, additional, date) FROM stdin;
+23	dfsdf	sdgsdg	sdfsd								2012-03-17 20:52:49
+24	2	2	2								2012-03-17 20:53:00
+25	3	3	3								2012-03-17 20:53:09
+\.
+
+
+--
+-- TOC entry 2163 (class 0 OID 16590)
+-- Dependencies: 170
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: hts
+--
+
+COPY users (id, email, password_digest) FROM stdin;
+1	jtherr@gmail.com	$2a$10$HlZ.b6cb4z2/VEtuNd320O5njOH3zAy7R0sJ8UIrWMz.Z.4FF0tU6
+2	tom@herrtoolsales.com	$2a$10$j9w7xHnS.w6ivtAoPufgs.bsY9bpVN2UEYskKZpM5qquuM4waxX12
+\.
+
+
+--
+-- TOC entry 2149 (class 2606 OID 16554)
+-- Dependencies: 162 162
+-- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: hts; Tablespace: 
+--
+
+ALTER TABLE ONLY categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2151 (class 2606 OID 16565)
+-- Dependencies: 164 164
+-- Name: news_pkey; Type: CONSTRAINT; Schema: public; Owner: hts; Tablespace: 
+--
+
+ALTER TABLE ONLY news_items
+    ADD CONSTRAINT news_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2153 (class 2606 OID 16576)
+-- Dependencies: 166 166
+-- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: hts; Tablespace: 
+--
+
+ALTER TABLE ONLY products
+    ADD CONSTRAINT products_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2155 (class 2606 OID 16587)
+-- Dependencies: 168 168
+-- Name: quote_requests_pkey; Type: CONSTRAINT; Schema: public; Owner: hts; Tablespace: 
+--
+
+ALTER TABLE ONLY quote_requests
+    ADD CONSTRAINT quote_requests_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2157 (class 2606 OID 16598)
+-- Dependencies: 170 170
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: hts; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2158 (class 2606 OID 16610)
+-- Dependencies: 166 162 2148
+-- Name: product_category; Type: FK CONSTRAINT; Schema: public; Owner: hts
+--
+
+ALTER TABLE ONLY products
+    ADD CONSTRAINT product_category FOREIGN KEY (category_id) REFERENCES categories(id);
+
+
+--
+-- TOC entry 2168 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2012-03-17 17:42:50 EDT
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -1,0 +1,33 @@
+
+<% if @products.size == 0 %>
+	<div class="importantMessage">No products were found</div>
+<% else %>	
+	
+	<table>
+		<tr>
+			<th>Company</th>
+			<th>Product</th>
+			
+			<% if logged_in? %>
+				<th class="icon"></th>		
+				<th class="icon"><span data-request-path="<%= url_for new_product_path %>" data-update="productResults" data-object-name="Product" class="add ui-icon ui-icon-plus" title="Add"></span></th>		
+			<% end %>
+		</tr>		
+			
+		<% @products.each do |product| %>		
+			<tr>
+				<td><%=product.company %></td>
+				<td><%=product.name %></td>
+
+				<% if logged_in? %>
+					<td class="icon">
+						<span data-request-path="<%= url_for edit_product_path(:id => product.id) %>" data-update="productResults" data-object-name="Product" data-update="productResults" class="edit ui-icon ui-icon-pencil" title="Edit"></span>
+					</td>
+					<td class="icon">
+						<span data-request-path="<%= url_for product_path(:id => product.id) %>" data-update="productResults" data-object-name="Product" class="delete ui-icon ui-icon-trash" title="Delete"></span>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+<% end %>

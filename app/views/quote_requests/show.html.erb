@@ -1,0 +1,11 @@
+<% if @quoteRequest.blank? %>
+<p>Error finding quote request.</p>
+<% else %>
+<p>Showing quote request</p>
+
+<p>Product Name = <%=@quoteRequest.name %></p>
+<p>Product Company = <%=@quoteRequest.company %></p>
+
+<% end %>
+
+<p><a href="/main/products"><div class="button">Back</div></a></p>

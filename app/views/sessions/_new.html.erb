@@ -1,0 +1,28 @@
+<% if @message %>
+	<div class="errors ui-widget">
+		<div class="ui-state-error ui-corner-all">
+			<p>
+				<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+				<strong>Error:</strong> <%= @message %>
+			</p>
+		</div>
+	</div>
+<% end %>
+
+<%= form_tag(sessions_path, :remote => true) %>
+	<div class="field">
+		<label for="email">Email</label>
+		<%= text_field_tag 'email' %>
+	</div>
+	
+	<div class="field">
+		<label for="password">Password</label>
+		<%= password_field_tag 'password' %>
+	</div>
+
+	<div class="field">
+		<label>&nbsp;</label>
+		<%= submit_tag 'Log in' %>
+		<%= button_to_function "Cancel", "closeDialog();" %>		
+	</div>
+</form>

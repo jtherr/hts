@@ -1,0 +1,30 @@
+<form class="sortableForm">
+
+	<table class="sortable" data-request-path="<%= url_for "/categories/updateOrder" %>">
+		<tr>
+			<th class="icon"></th>
+			<th>Category</th>
+			<th class="icon"></th>		
+			<th class="icon"><span data-request-path="<%= url_for new_category_path %>" data-object-name="Category" class="add ui-icon ui-icon-plus" title="Add"></span></th>		
+		</tr>
+		
+		<% @categories.each do |category| %>		
+			<tr class="sort-item">
+				<td class="icon">
+					<span class="handle ui-icon ui-icon-arrowthick-2-n-s"></span>
+					<input type="hidden" id="categories" name="categories[]" value="<%= category.id %>" />
+				</td>
+	
+				<td><%=category.name %></td>	
+				
+				<td class="icon">
+					<span data-request-path="<%= url_for edit_category_path(:id => category.id) %>" data-object-name="Category" data-update="categoryResults" class="edit ui-icon ui-icon-pencil" title="Edit"></span>
+				</td>
+				<td class="icon">
+					<span data-request-path="<%= url_for category_path(:id => category.id) %>" data-update="categoryResults" data-object-name="Category" class="delete ui-icon ui-icon-trash" title="Delete"></span>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+
+</form>

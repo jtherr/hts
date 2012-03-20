@@ -1,0 +1,18 @@
+<% if @news_item.errors.any? %>
+	var errors = '<div class="errors ui-widget"><div class="ui-state-error ui-corner-all">';
+
+	<% @news_item.errors.full_messages.each do |msg| %>
+		errors += '<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Error:</strong> ';
+		errors += '<%= escape_javascript(msg) %>'
+		errors += '</p>';				
+	<% end %>
+
+	errors += '</div></div>';
+
+	$("#errors").html(errors).show();
+<% else %>
+	$("#newsItemResults").html("<%= escape_javascript( render(:partial => "results")) %>");
+	closeDialog();	
+	displayMessage('News Item <%= actionLabel() %>');
+	initActions();
+<% end %>

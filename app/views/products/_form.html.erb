@@ -1,0 +1,25 @@
+<%= form_for(@product, :remote => true) do |f| %>
+	<div id="errors" class="errors" style="display: none;"></div>
+
+	<div class="field">
+		<%= f.label :category_id, 'Category' %>
+		<%= f.collection_select(:category_id, @categories, :id, :name, { :prompt => true }) %>
+	</div>
+	<div class="field">
+		<%= f.label :company, 'Company' %>
+		<%= f.text_field :company %>
+	</div>
+	<div class="field">
+		<%= f.label :name, 'Name' %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :premier, 'Premier' %>
+		<%= f.check_box :premier %>
+	</div>
+	<div class="field">	
+		<label>&nbsp;</label>	
+		<%= f.submit submitLabel(@product) %>
+		<%= button_to_function "Cancel", "closeDialog();" %>
+	</div>
+<% end %>

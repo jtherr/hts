@@ -1,0 +1,21 @@
+
+<div id="productsMain">
+	<p>
+		Please select from the following categories for a list of products we sell. 
+		To obtain a more detailed description of a product, please <%=link_to "contact us", :action => "contactUs" %>.
+	</p>
+	
+	<div id="left">
+		<div class="subTitle">Product Categories</div>
+		
+		<ul>
+			<% @categories.each do |category| %>
+				<li>
+					<%= link_to(category.name, category_products_path(category)) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div id="right" />
+</div>

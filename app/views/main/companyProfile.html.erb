@@ -1,0 +1,35 @@
+Herr Tool Sales has been providing quality tooling and technical advice 
+for 50 years. Known nationwide for our workholding products, 
+particularly our chucks and vises, we continue to expand our product 
+selection to meet the demand of our customers.
+
+<br><br>
+
+We have represented numerous companies, such as Chick Workholding 
+Solutions and SMW / Autoblock, for over two decades. Therefore, we have 
+vast knowledge on a variety of installations, including automatic indexing 
+chucks, automatic pallet changers, and hydraulic fixtures and vises. With 
+a combined 90 years of workholding and tooling experience, we can advise 
+you on all of your machining questions.
+
+<br><br>
+
+The United States Mint, General Dynamics, and Caterpillar Tractor are just 
+a few companies of which we have supplied many workholding products.
+
+<br><br>
+
+Herr Tool Sales offers 
+
+<% @categories.each_with_index do |category, i| %>
+	<%= link_to(category.name, category_products_path(category), :class => 'lowercase') %><% if i < @categories.size - 1 %>, <% elsif i == @categories.size - 1 %>, and <% elsif i == @categories.size %>.<% end %>
+<% end %>
+
+
+In addition, we offer a chuck, cylinder and toolholder 
+rebuilding service.
+
+<br><br>
+
+<%=link_to 'Contact Us', { :action => 'contactUs' } %> for all your 
+tooling requirements.

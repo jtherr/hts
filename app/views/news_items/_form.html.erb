@@ -1,0 +1,21 @@
+<script type="text/javascript">
+	$(".datepicker").datepicker();	
+</script>
+
+<%= form_for(@news_item, :remote => true) do |f| %>
+	<div id="errors" class="errors" style="display: none;"></div>
+
+	<div class="field">
+		<%= f.label :dateString, 'Date' %>
+		<%= f.text_field :dateString, :class => 'datepicker short' %>
+	</div>
+	<div class="field">
+		<%= f.label :description, 'Description' %>
+		<%= f.text_field :description, :class => 'short' %>
+	</div>
+	<div class="field">
+		<label>&nbsp;</label>		
+		<%= f.submit submitLabel(@news_item) %>
+		<%= button_to_function "Cancel", "closeDialog();" %>
+	</div>
+<% end %>

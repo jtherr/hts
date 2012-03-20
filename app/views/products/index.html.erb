@@ -1,0 +1,14 @@
+
+This product linecard contains only our major products. Our complete list of offerings is 
+immensely larger. Please ask and we'll do our absolute best to find a solution for you.
+<br /><br />
+
+<div id="productResults">
+	<%= render :partial => 'results' %>
+</div>
+
+<div class="categoryLinks">
+	<% @categories.each_with_index do |category, i| %>
+		<%= link_to(category.name, category_products_path(category)) %><% if i < @categories.size - 1 %> | <% end %>
+	<% end %>
+</div>

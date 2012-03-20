@@ -1,0 +1,72 @@
+
+<div id="homeTop">
+	<div id="homeLeft">
+		<div id="welcomeStatement">
+			Thank you for visiting the Herr Tool Sales website! Here you may browse 
+			our product linecard, read about major news events, and discover the best 
+			way to <%=link_to "contact us", :action => "contactUs" %>.
+		</div>
+		
+		<div id="missionStatement">
+			<div class="subTitle">Our Mission</div>
+			
+			<div class="statement">
+				"To provide quality metal working products, service, and advice with 
+				prompt deliveries at competitive prices."
+			</div>
+		
+			<div class="right">-- Tom Herr, President</div>
+		</div>
+		
+		<div class="chuck"></div>
+	</div>
+	
+	<div id="premierProducts">
+		<div class="subTitle">Premier Line Products</div>
+		
+		<% if logged_in? %>
+			<div class="instructions">DRAG TO REORDER</div>
+
+			<form class="sortableForm">
+				<table class="sortable" data-request-path="<%= url_for "/products/updateOrder" %>">
+			    	<% @products.each do |product| %>
+						<tr class="sort-item">
+							<td class="icon">
+								<span class="handle ui-icon ui-icon-arrowthick-2-n-s"></span>
+								<input type="hidden" id="premiers" name="premiers[]" value="<%= product.id %>" />
+							</td>
+							<td><%=product.company %></td>
+						</tr>				
+					<% end %>
+				</table>
+			</form>
+		<% else %>
+			<table>
+		    	<% @products.each do |product| %>
+					<tr>
+						<td><%=product.company %></td>
+					</tr>				
+				<% end %>
+			</table>
+		<% end %>
+
+		<div class="rightLink">
+			<%=link_to "More Products...", '/categoryList' %>
+		</div>
+	</div>
+</div>
+
+<div class="line"></div>
+
+<div id="news">
+	<div class="subTitle">News</div>
+
+	<div id="newsItemResults">
+		<%= render :partial => '/news_items/results' %>
+	</div>
+</div>
+
+<div id="paymentTypes">
+	<div id="visaIcon"></div>
+	<div id="mastercardIcon"></div>
+</div>

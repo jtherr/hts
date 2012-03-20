@@ -1,0 +1,34 @@
+<% if @user.errors.any? %>
+	<div class="errors ui-widget">
+		<div class="ui-state-error ui-corner-all">
+			<% @user.errors.full_messages.each do |msg| %>
+				<p>
+					<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+					<strong>Error:</strong> <%= msg %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
+
+<%= form_for @user do |f| -%>
+
+	<div class="field">
+		<%= f.label :email, 'Email' %>
+		<div><%= f.text_field :email %></div>
+	</div>
+	<div class="field">
+		<%= f.label :password, 'Password' %>
+		<div><%= f.password_field :password %></div>
+	</div>
+	<div class="field">
+		<%= f.label :password_confirmation, 'Confirm Password' %>
+		<div><%= f.password_field :password_confirmation %></div>
+	</div>
+	<div class="field">
+		<label>&nbsp;</label>
+		<div><%= f.submit 'Create' %></div>
+	</div>
+	
+<% end %>

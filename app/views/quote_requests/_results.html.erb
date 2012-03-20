@@ -1,0 +1,56 @@
+<% if @quote_requests.size() > 0 %>
+	<% @quote_requests.each do |quote| %>
+		<div class="quoteRequest">
+			<div class="date"><%=quote.date.to_date.to_formatted_s(:long_ordinal) %></div>
+			
+			<span data-request-path="<%= url_for quote_request_path(:id => quote.id) %>" data-update="quoteResults" data-object-name="Quote Request" class="delete ui-icon ui-icon-trash" title="Delete"></span>
+			
+			<table>
+				<tr>
+					<td class="label">Name</td>
+					<td><%=quote.name %></td>
+				</tr>
+				<tr>
+					<td class="label">Company</td>
+					<td><%=quote.company %></td>
+				</tr>						
+				<tr>
+					<td class="label">Phone</td>
+					<td><%=quote.phone %></td>
+				</tr>	
+				<% if !quote.fax.blank? %>
+					<tr>
+						<td class="label">Fax</td>
+						<td><%=quote.fax %></td>
+					</tr>
+				<% end %>
+				<% if !quote.email.blank? %>
+					<tr>
+						<td class="label">Email</td>
+						<td><%=quote.email %></td>
+					</tr>
+				<% end %>			
+				<% if !quote.street.blank? || !quote.city.blank? || !quote.state.blank? || !quote.zip.blank? %>
+					<tr>
+						<td class="label">Address</td>
+						<td>
+							<%=quote.street %>
+							<% if !quote.city.blank? || !quote.state.blank? || !quote.zip.blank? %><br /><% end %>
+							<%=quote.city %><% if !quote.city.blank? && !quote.state.blank? %>, <% end %>
+							<%=quote.state %> <%=quote.zip %>
+						</td>
+					</tr>
+				<% end %>
+				<% if !quote.additional.blank? %>
+					<tr>
+						<td class="label">Additional</td>
+						<td><%=quote.additional %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	<%end %>
+
+<% else %>
+  No quote requests have been found.
+<% end %>
