@@ -1,5 +1,3 @@
-require 'logger'
-
 class MainController < ApplicationController      
   def index
     @products = Product.premier
@@ -8,11 +6,11 @@ class MainController < ApplicationController
   end
   
   def contactUs
-    @title = "Contact Us";
+    @title = "Contact Us"
   end
   
   def companyProfile
-    @title = "Company Profile";
+    @title = "Company Profile"
     @categories = Category.find(:all, :order => 'position');
   end
   
