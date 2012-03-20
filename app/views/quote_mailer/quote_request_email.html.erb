@@ -1,46 +1,46 @@
-<div style="display: block; width: 100%; padding-bottom: 4px; float: left;  border-bottom: #C0C0C0;">
-	<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Name</label>
-	<div style="float: left; width: 400px; padding-bottom: 2px;">
+<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+	<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Name</label>
+	<div style="float: left; width: 400px;">
 		<%=@quote_request.name %>
 	</div>
 </div>
 
-<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
-	<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Company</label>
-	<div style="float: left; width: 400px; padding-bottom: 2px;">
+<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+	<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Company</label>
+	<div style="float: left; width: 400px;">
 		<%=@quote_request.company %>
 	</div>
 </div>
 
-<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
-	<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Phone</label>
-	<div style="float: left; width: 400px; padding-bottom: 2px;">
+<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+	<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Phone</label>
+	<div style="float: left; width: 400px;">
 		<%=@quote_request.phone %>
 	</div>
 </div>
 
 <% if !@quote_request.fax.blank? %>
-	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
-		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Fax</label>
-		<div style="float: left; width: 400px; padding-bottom: 2px;">
+	<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+		<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Fax</label>
+		<div style="float: left; width: 400px;">
 			<%=@quote_request.fax %>
 		</div>
 	</div>
 <% end %>
 
 <% if !@quote_request.email.blank? %>
-	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
-		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Email</label>
-		<div style="float: left; width: 400px; padding-bottom: 2px;">
+	<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+		<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Email</label>
+		<div style="float: left; width: 400px;">
 			<%=mail_to @quote_request.email %>
 		</div>
 	</div>
 <% end %>
 
 <% if !@quote_request.street.blank? || !@quote_request.city.blank? || !@quote_request.state.blank? || !@quote_request.zip.blank? %>
-	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
-		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Address</label>
-		<div style="float: left; width: 400px; padding-bottom: 2px;">
+	<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+		<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Address</label>
+		<div style="float: left; width: 400px;">
 			<%=@quote_request.street %>
 			<% if !@quote_request.city.blank? || !@quote_request.state.blank? || !@quote_request.zip.blank? %><br /><% end %>
 			<%=@quote_request.city %><% if !@quote_request.city.blank? && !@quote_request.state.blank? %>, <% end %>
@@ -50,9 +50,9 @@
 <% end %>
 
 <% if !@quote_request.additional.blank? %>
-	<div style="display: block; width: 100%; padding-bottom: 4px; float: left; border-bottom: #C0C0C0;">
-		<label style="float: left; width: 150px; text-align: right; margin-right: 10px; font-weight: bold;">Additional</label>
-		<div style="float: left; width: 400px; padding-bottom: 2px;">
+	<div style="width: 570px; padding-bottom: 4px; float: left; border-bottom: 1px solid #C0C0C0;">
+		<label style="float: left; width: 150px; margin-right: 10px; font-weight: bold;">Additional</label>
+		<div style="float: left; width: 400px;">
 			<%=@quote_request.additional %>
 		</div>
 	</div>
