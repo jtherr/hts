@@ -3,7 +3,7 @@ class QuoteMailer < ActionMailer::Base
   
   def quote_request_email(quote_request)
     @quote_request = quote_request
-    mail(:to => 'jtherr@gmail.com', :subject => "HTS QUOTE REQUEST")
+    mail(:to => ['tom@herrtoolsales.com', 'jtherr@gmail.com'], :subject => "HTS QUOTE REQUEST")
   end
   
 end
