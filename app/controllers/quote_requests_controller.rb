@@ -15,7 +15,8 @@ class QuoteRequestsController < ApplicationController
     @quote_request = QuoteRequest.new(params[:quote_request])
     @quote_request.date = DateTime.now
 
-    if @quote_request.save
+    # if leave_blank is not blank, it is likely a robot, so don't save
+    if params[:leave_blank] == "" && @quote_request.save
       QuoteMailer.quote_request_email(@quote_request).deliver
       @title = "Request Submitted"    
     
