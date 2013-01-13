@@ -5,10 +5,10 @@ Hts::Application.routes.draw do
   root :to => 'main#index'
   
   match 'productsMain' => 'main#productsMain'
+  match 'categoryList' => 'categories#categoryList'
   match 'companyProfile' => 'main#companyProfile'
   match 'contactUs' => 'main#contactUs'
 
-  match 'categoryList' => 'categories#categoryList'
   match 'logout' => 'sessions#destroy'
   match 'productSearch' => 'products#search'
   match 'categories/updateOrder' => 'categories#updateOrder'
