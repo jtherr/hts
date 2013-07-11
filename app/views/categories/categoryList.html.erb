@@ -1,21 +1,61 @@
+<div id="content">
+	<div class="post">
+		<h2 class="title">Products</h2>
+		<div class="entry">
+			<div id="box1">
+				<h3 class="text1">Categories</h3>
+				<p class="text2">Dolor sit amet nullam blandi tempus nulla tempus consequat</p>
 
-<div id="productsMain">
-	<p>
-		Please select from the following categories for a list of products we sell. 
-		To obtain a more detailed description of a product, please <a href="<%= url_for '/contactUs' %>">contact us</a>.
-	</p>
-	
-	<div id="left">
-		<div class="subTitle">Product Categories</div>
-		
-		<ul>
-			<% @categories.each do |category| %>
-				<li>
-					<%= link_to(category.name, category_products_path(category)) %>
-				</li>
-			<% end %>
-		</ul>
+				<% midpoint = (@categories.length / 2).round - 1 %>
+						
+				<div id="two-columns">
+					<div id="column1">									
+						<ul class="style1">
+							<% @categories[0..midpoint].each do |category| %>
+								<li>
+									<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
+									<h3><%= category.name %></h3>
+									<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+								</li>
+							<% end %>
+						</ul>							
+					</div>
+					<div id="column2">
+						<ul class="style1">
+							<% @categories[(midpoint+1)..@categories.length].each do |category| %>
+								<li>
+									<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
+									<h3><%= category.name %></h3>
+									<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+								</li>
+							<% end %>
+						</ul>				
+					</div>
+				</div>					
+			</div>
+
+			<p><a href="#" class="link-style3"><span>Sed tempus aliquam</span></a></p>
+		</div>
 	</div>
-	
-	<div id="right" />
+</div>
+<div id="sidebar">
+	<div id="box4">
+		<h2>Personalized Service</h2>
+		<div class="content">
+			<p><a href="#"><%= image_tag 'homepage15.jpg', :width => 210, :height => 90 %></a></p>
+			<p>Donec quis iaculis urna. Curabitur sed, vestibulum nec sem. dui lorem, interdum congue molestie sit amet, et auctor vitae libero consequat.</p>
+		</div>
+	</div>
+	<div id="box5">
+		<h2>Expansive Linecard</h2>
+		<div class="content">
+			<ul class="style2">
+				<li class="first"><a href="#">Donec quis iaculis curabitur</a></li>
+				<li><a href="#">Vestibulum nec sem dui lorem</a></li>
+				<li><a href="#">Interdum congue sed amet,</a></li>
+				<li><a href="#">Auctor vitae libero consequat</a></li>
+				<li><a href="#">Consequat etiam lorem ipsum</a></li>
+			</ul>
+		</div>
+	</div>
 </div>

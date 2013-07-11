@@ -1,72 +1,141 @@
-
-<div id="homeTop">
-	<div id="homeLeft">
-		<div id="welcomeStatement">
-			Thank you for visiting the Herr Tool Sales website! Here you may browse 
-			our product linecard, read about major news events, and discover the best 
-			way to <%=link_to "contact us", :action => "contactUs" %>.
-		</div>
-		
-		<div id="missionStatement">
-			<div class="subTitle">Our Mission</div>
-			
-			<div class="statement">
-				"To provide quality metal working products, service, and advice with 
-				prompt deliveries at competitive prices."
+<div id="slideshow" class="container">
+	<div class="viewer">
+		<div class="reel">
+			<div class="slide">
+				<%= image_tag 'pics01.jpg', :width => 940, :height => 220 %>
+				<div class="caption">
+					<h2>Proven Experience</h2>
+					<p>Providing expert consultation on manufacturing and workholding products for over 50 years.</p>
+				</div>
+				<a href="#1" class="link">Continue reading ...</a>
 			</div>
-		
-			<div class="right">-- Tom Herr, President</div>
-		</div>
-		
-		<div class="chuck"></div>
-	</div>
-	
-	<div id="premierProducts">
-		<div class="subTitle">Premier Line Products</div>
-		
-		<% if logged_in? %>
-			<div class="instructions">DRAG TO REORDER</div>
-
-			<form class="sortableForm">
-				<table class="sortable" data-request-path="<%= url_for "/products/updateOrder" %>">
-			    	<% @products.each do |product| %>
-						<tr class="sort-item">
-							<td class="icon">
-								<span class="handle ui-icon ui-icon-arrowthick-2-n-s"></span>
-								<input type="hidden" id="premiers" name="premiers[]" value="<%= product.id %>" />
-							</td>
-							<td><%=product.company %></td>
-						</tr>				
-					<% end %>
-				</table>
-			</form>
-		<% else %>
-			<table>
-		    	<% @products.each do |product| %>
-					<tr>
-						<td><%=product.company %></td>
-					</tr>				
-				<% end %>
-			</table>
-		<% end %>
-
-		<div class="rightLink">
-			<%=link_to "More Products...", '/categoryList' %>
+			<div class="slide">
+				<%= image_tag 'pics02.jpg', :width => 940, :height => 220 %>
+				<div class="caption">
+					<h2>Consequat tempus lorem dolor?</h2>
+					<p>Trusted by The United States Mint to provide quality manufacturing advice, consultation, and tooling.</p>
+				</div>
+				<a href="#2" class="link">Continue reading ...</a>
+			</div>
+			<div class="slide">
+				<%= image_tag 'pics03.jpg', :width => 940, :height => 220 %>
+				<div class="caption">
+					<h2>Over $1 billion in sales and counting.</h2>
+					<p>Herr Tool continues to provide solutions machine shops need to get the job done.</p>
+				</div>
+				<a href="#3" class="link">Continue reading ...</a>
+			</div>
 		</div>
 	</div>
+	<a href="#" class="previous">Previous</a> <a href="#" class="next">Next</a>
 </div>
 
-<div class="line"></div>
-
-<div id="news">
-	<div class="subTitle">News</div>
-
-	<div id="newsItemResults">
-		<%= render :partial => '/news_items/results' %>
+<div id="content">
+	<div class="post">
+		<h2 class="title">Consequat maecenas lorem</h2>
+		<div class="entry">
+			<div id="box1">
+				<h3 class="text1">velit libero commodo ligula</h3>
+				<p class="text2">Dolor sit amet nullam blandi tempus nulla tempus consequat</p>
+				<p><a href="#">
+					<%= image_tag 'homepage03.jpg', :width => 246, :height => 236, :class => 'alightleft' %>
+				</a>Amet donec quis iaculis urna. Curabitur et tortor, dapibus et vestibulum sed, vestibulum amet sem. Maecenas lobortis lobortis vestibulum. Cras ultricies feugiat vehicula. Sed dui lorem, interdum congue molestie sit amet, et auctor vitae libero. Maecenas molestie iaculis. Donec quis iaculis urna. Curabitur sed tortor, dapibus et vestibulum sed amet lorem ipsum dolor sit amet nullam veroeros.</p>
+				<p><span><a href="#" class="link-style1">Continue Reading</a></span><span><a href="#" class="link-style2">Comments (33)</a></span></p>
+			</div>
+			<div class="divider">&nbsp;</div>
+			<div id="two-columns">
+				<div id="column1">
+					<h2>Amet magna maecenas</h2>
+					<ul class="style1">
+						<li class="first">
+							<a href="#"><%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %></a>
+							<h3>Sed tortor dapibus</h3>
+							<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+						</li>
+						<li>
+							<a href="#"><%= image_tag 'homepage07.jpg', :width => 90, :height => 90 %></a>
+							<h3>Lorem ipsum dolore</h3>
+							<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+						</li>
+						<li>
+							<a href="#"><%= image_tag 'homepage08.jpg', :width => 90, :height => 90 %></a>
+							<h3>Aliquam blandit nulla</h3>
+							<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+						</li>
+						<li>
+							<a href="#"><%= image_tag 'homepage09.jpg', :width => 90, :height => 90 %></a>
+							<h3>Lorem ipsum dolore</h3>
+							<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+						</li>
+						<li>
+							<a href="#"><%= image_tag 'homepage10.jpg', :width => 90, :height => 90 %></a>
+							<h3>Aliquam blandit nulla</h3>
+							<p>Maecenas amet lobortis cras ultricies et feugiat  veroeros blandit etiam.</p>
+						</li>
+					</ul>
+					<p><a href="#" class="link-style3"><span>Sed tempus aliquam</span></a></p>
+				</div>
+				<div id="column2">
+					<div id="box2">
+						<h2>Maecenas et libero</h2>
+						<p><a href="#"><%= image_tag 'homepage11.jpg', :width => 290, :height => 90 %></a></p>
+						<p>Donec quis iaculis urna. Curabitur sed tortor, dapibus et vestibulum sed, vestibulum nec sem. dui lorem, interdum congue molestie sit amet, et auctor vitae libero. Maecenas molestie iaculis.</p>
+						<p><a href="#" class="link-style3"><span>Sed tempus aliquam</span></a></p>
+					</div>
+					<div class="divider"></div>
+					<div id="box3">
+						<h2>Maecenas et libero</h2>
+						<p><a href="#"><%= image_tag 'homepage12.jpg', :width => 290, :height => 90 %></a></p>
+						<p>Donec quis iaculis urna. Curabitur sed tortor, dapibus et vestibulum sed, vestibulum nec sem. dui lorem, interdum congue molestie sit amet, et auctor vitae libero. Maecenas iaculis.</p>
+						<p><a href="#" class="link-style3"><span>Sed tempus aliquam</span></a></p>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix">&nbsp;</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar">
+	<div id="box4">
+		<h2>Ipsum sed libero</h2>
+		<div class="content">
+			<p><a href="#"><%= image_tag 'homepage15.jpg', :width => 210, :height => 90 %></a></p>
+			<p>Donec quis iaculis urna. Curabitur sed, vestibulum nec sem. dui lorem, interdum congue molestie sit amet, et auctor vitae libero consequat.</p>
+		</div>
+	</div>
+	<div id="box5">
+		<h2>Curabitur dui urna</h2>
+		<div class="content">
+			<ul class="style2">
+				<li class="first"><a href="#">Donec quis iaculis curabitur</a></li>
+				<li><a href="#">Vestibulum nec sem dui lorem</a></li>
+				<li><a href="#">Interdum congue sed amet,</a></li>
+				<li><a href="#">Auctor vitae libero consequat</a></li>
+				<li><a href="#">Consequat etiam lorem ipsum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="box6">
+		<h2>@4Templates</h2>
+		<div>
+			<ul class="style3">
+				<li class="li-bg1">
+					<p>Etiam egestas lobortis arcu, eget ullamcorper enim volutpat sed ipsum dolore. <a href="#">http://t.co/nnn.nnn</a></p>
+					<p class="posted">15 minutes ago</p>
+				</li>
+				<li class="li-bg2">
+					<p><a href="#">@4templates</a> Lorem ipsum dolor sit amet nullam blandit tempus consequat veroeros lorem.</p>
+					<p class="posted">38 minutes ago</p>
+				</li>
+				<li class="li-bg1">
+					<p>Interdum auctor sed <a href="#">@4templates</a> blandit aliquam rhoncus volutpat pretium. Consequat etiam dolore!</p>
+					<p class="posted">1 hour ago</p>
+				</li>
+			</ul>
+			<div class="content">
+				<p><a href="#" class="link-style3"><span>More Tweets</span></a></p>
+			</div>
+		</div>
 	</div>
 </div>
 
-<div id="paymentTypes">
-	<div id="visaIcon"></div>
-	<div id="mastercardIcon"></div>
-</div>

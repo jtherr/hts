@@ -1,18 +1,13 @@
 class QuoteRequestsController < ApplicationController
   before_filter :login_required, :only => [ :index, :desroy ]
-    
-  def index
-    @quote_requests = QuoteRequest.find(:all)
-    @title = "Quote Requests";
-  end
-  
+
   def new
     @quote_request = QuoteRequest.new
     @title = "Request Quote"
   end
   
   def create
-    @quote_request = QuoteRequest.new(params[:quote_request])
+    @quote_request = QuoteRequest.new(quote_request_params)
     @quote_request.date = DateTime.now
 
     # if leave_blank is not blank, it is likely a robot, so don't save
@@ -31,10 +26,8 @@ class QuoteRequestsController < ApplicationController
     end
   end
   
-  def destroy
-    QuoteRequest.find(params[:id]).destroy
-    @quote_requests = QuoteRequest.find(:all)
-    render :partial => 'results'
-  end
-  
+  private
+    def quote_request_params
+      params.require(:quote_request).permit(:name, :company, :phone, :email, :fax, :street, :city, :state, :zip, :additional)
+    end
 end

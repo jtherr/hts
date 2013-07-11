@@ -2,12 +2,12 @@ class CategoriesController < ApplicationController
   before_filter :login_required, :only => [ :index, :create, :new, :edit, :update, :delete, :reorderCategories ]
   
   def categoryList
-    @categories = Category.find(:all);
+    @categories = Category.all
     @title = "Products"
   end
   
   def index
-    @categories = Category.find(:all)
+    @categories = Category.all
     @title = "Categories"
   end
   
@@ -24,9 +24,9 @@ class CategoriesController < ApplicationController
   end
   
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new(category_params)
     @category.save
-    @categories = Category.find(:all)
+    @categories = Category.all
     render 'createUpdate'
   end
   
@@ -37,8 +37,8 @@ class CategoriesController < ApplicationController
   
   def update
     @category = Category.find(params[:id])
-    @category.update_attributes(params[:category])
-    @categories = Category.find(:all)
+    @category.update_attributes(category_params)
+    @categories = Category.all
     render 'createUpdate'
   end
   
@@ -46,8 +46,13 @@ class CategoriesController < ApplicationController
     Product.destroy_all "category_id = #{params[:id]}"
     Category.find(params[:id]).destroy
     
-    @categories = Category.find(:all)
+    @categories = Category.all
     render :partial => 'results'
   end
+  
+  private
+    def category_params
+      params.require(:category).permit(:name, :position)
+    end
   
 end

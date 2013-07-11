@@ -24,13 +24,15 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 
 
 .field { width: 100%; float: left; margin: 5px 0px; }
-.field label { font-weight: bold; float: left; width: 150px; }
+.field label { font-weight: bold; float: left; width: 150px; text-align: right; padding: 6px 15px 0px 0px; }
 .field .value { float: left; }
+.field .value input { font-size: 14px; }
+.field .value textarea { font-size: 14px; }
 .field .field_with_errors { float: left; }
 .field .required { float: left; color: red; padding: 4px 0px 0px 10px;  }
 
 .errors { margin-bottom: 10px; }
-.errors .ui-state-error p { margin: 5px; }
+.errors .ui-state-error p { margin: 5px; line-height: 100%; }
 
 #message { margin-bottom: 10px; }
 .ui-state-highlight p { margin: 5px; }
@@ -108,7 +110,6 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 #management .sectionRight { padding-left: 300px; }
 #management .name { font-size: 16px; font-weight: bold; }
 
-
 .quoteRequest { margin-bottom: 20px; font-size: 11px; float: left; width: 100%; }
 .quoteRequest .date { font-size: 13px; margin-bottom: 4px; float: left; font-weight: bold; }
 .quoteRequest table td.label { font-weight: bold; width: 150px; }
@@ -124,3 +125,10 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 .importantMessage { font-weight: bold; color: red; font-size: 16px; }
 
 .lowercase { text-transform: lowercase; }
+
+
+
+
+
+
+

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_filter :login_required
   
+  def encrypt_password
+    render BCrypt::Password.create(params[:password])
+  end
+  
   def new
     @user = User.new
     @title = "Add User"
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     @user.save
     if @user.errors.empty?
       session[:user_id] = @user.id
@@ -25,12 +29,17 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       
     else
       @title = "Add User"
       render :action => 'new'
     end
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation)
+    end
 
 end

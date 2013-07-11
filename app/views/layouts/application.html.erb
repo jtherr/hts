@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
 	<title>
 		<% if @title %>
 			<%=@title %> - Herr Tool Sales Inc.
@@ -13,93 +17,104 @@
 	<%= stylesheet_link_tag "application" %>
 	<%= csrf_meta_tags %>
 
+	<link href="http://fonts.googleapis.com/css?family=Arvo:400,700|Oswald" rel="stylesheet" type="text/css" />
 	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+	<!--[if IE 6]>
+	<link href="ie6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
 </head>
 <body>
-	<script type="text/javascript">
-		$(function() {
-			init();
-		});
-	</script>
-
-	<div id="dialog" style="display: none;">
-		<div id="dialogContent"></div>
-	</div>
-
-	<center>
-		<div id="container">
-			<div id="mainContainer">				
-				<div id="header">
-					<div id="search">
-						<%= form_tag('/productSearch') %>
-							Search Products
-							<%=text_field :main, :search, :class => 'searchInput' %>
-							<%=submit_tag "Go", :class => 'searchButton' %>
-						</form>
-					</div>
-					<div id="title">
-						<%=@title %>
-						<% if (@category) %>
-							- <%=@category.name %>
-						<% end %>
-					</div>
-					<div id="titleEnd"></div>
+<div id="wrapper-bg">
+	<div id="wrapper-bgtop">
+		<div id="wrapper-bgbtm">
+			<div id="header" class="container">
+				<div id="logo">
+					<h1><a href="<%= url_for '/' %>">Herr Tool Sales</a></h1>
+					<p>Precision Machine Tools</p>
 				</div>
-				<div id="body">
-					<div id="menu">
-						<div id="contents">
-							<a href="<%= url_for '/' %>"><div class="button">Home</div></a>
-							<a href="<%= url_for '/categoryList' %>"><div class="button">Products</div></a>
-							<a href="<%= url_for '/companyProfile' %>"><div class="button">Company Profile</div></a>
-							<a href="<%= url_for '/contactUs' %>"><div class="button">Contact Us</div></a>
-							<a href="<%= url_for new_quote_request_path %>"><div class="button">Request Quote</div></a>
-							
-							<% if logged_in? %>
-								<br />
-								
-								<a href="<%= url_for '/categories' %>"><div class="button admin">Categories</div></a>
-								<a href="<%= url_for '/quote_requests' %>"><div class="button admin">View Requests</div></a>
-							<% end %>
-						</div>
-					</div>
-					<div id="main">						
-						<div id="message" <% if !flash[:notice] %>style="display: none;"<% end %>>
-							<div class="ui-widget">
-								<div class="ui-state-highlight ui-corner-all">
-									<p>
-										<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-										<div id="messageContent"><%= flash[:notice] %></div>
-									</p>
-								</div>
-							</div>
-						</div>
-				
+				<div id="menu">
+					<div id="phone">(800) 307-3518</div>
+					
+					<ul>
+						<li><a href="<%= url_for '/' %>" accesskey="1">Home</a></li>
+						<li><a href="<%= url_for '/about' %>" accesskey="2">About</a></li>
+						<li><a href="<%= url_for '/products' %>" accesskey="3">Products</a></li>
+						<li><a href="<%= url_for '/brands' %>" accesskey="4">Brands</a></li>
+						<li><a href="<%= url_for '/contact' %>" accesskey="5">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="page" class="container">
+				<div id="page-bgtop">
+					<div id="page-bgbtm">
 						<%= yield  %>
+						
+						<div class="clearfix">&nbsp;</div>
 					</div>
 				</div>
-			
-				<div id="footer">
-					<div class="text">
-						<% if logged_in? %>
-							<%= link_to "Logout", '/logout' %>
-						<% else %>
-							<%= link_to "Login", new_session_path, :remote => true %>						
-						<% end %>
-					</div>
-				</div>				
 			</div>
 		</div>
-	</center>
+	</div>
+</div>
+<div id="footer-content" class="container">
+	<div id="three-columns">
+		<div id="box7">
+			<h2>Site Map</h2>
+			<ul class="style4">
+				<li class="first"><a href="<%= url_for '/' %>">Home</a></li>
+				<li><a href="<%= url_for '/about' %>">About</a></li>
+				<li><a href="<%= url_for '/products' %>">Products</a></li>
+				<li><a href="<%= url_for '/brands' %>">Brands</a></li>
+				<li><a href="<%= url_for '/contact' %>">Contact</a></li>
+			</ul>
+		</div>
+		<div id="box8">
+			<h2>Amet lobortis lorem</h2>
+			<div>
+				<ul class="style4">
+					<li class="first"><a href="#">Dapibus et vestibulum sem</a></li>
+					<li><a href="#">Quis iaculis urna curabitur et tortor</a></li>
+					<li><a href="#">Maecenas llobortis vestibulum</a></li>
+					<li><a href="#">Interdum congue sit amet auctor</a></li>
+					<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="box9">
+			<h2>Contact Us</h2>
+			<div class="content">
+				<ul class="style5">
+					<li><a href="#"><%= image_tag 'homepage17.gif', :width => 32, :height => 32 %></a></li>
+					<li><a href="#"><%= image_tag 'homepage18.gif', :width => 32, :height => 32 %></a></li>
+					<li><a href="#"><%= image_tag 'homepage19.gif', :width => 32, :height => 32 %></a></li>
+					<li><a href="#"><%= image_tag 'homepage20.gif', :width => 32, :height => 32 %></a></li>
+					<li><a href="#"><%= image_tag 'homepage21.gif', :width => 32, :height => 32 %></a></li>
+				</ul>
+				<p>Lorem ipsum dolor sit amet et
+					arcu blandit pretium? Et auctor
+					congue urna.</p>
+				<p><a href="#" class="link-style4">information@untitled.tld</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer" class="container">
+	<p class="links"><a href="#">Terms of Use</a> | <a href="#">Legal Disclaimer</a> | <a href="#">Privacy Policy</a> | <a href="#">Information</a> | <a href="#">Contact Us</a></p>
+	<p class="legal">© 2012 Untitled.tld. All rights reserved. Lorem ipsum dolor sit amet nullam blandit consequat veroeros etiam interdum.</p>
+</div>
 
-	<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-		var pageTracker = _gat._getTracker("UA-4147404-1");
-		pageTracker._initData();
-		pageTracker._trackPageview();
-	</script>
+
+
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-4147404-1");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+</script>
 
 </body>
 </html>

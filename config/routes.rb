@@ -4,15 +4,16 @@ Hts::Application.routes.draw do
 
   root :to => 'main#index'
   
-  match 'productsMain' => 'main#productsMain'
-  match 'categoryList' => 'categories#categoryList'
-  match 'companyProfile' => 'main#companyProfile'
-  match 'contactUs' => 'main#contactUs'
+  get 'products' => 'categories#categoryList'
+  get 'brands' => 'main#brands'
+  get 'about' => 'main#about'
+  get 'contact' => 'quote_requests#new'
 
-  match 'logout' => 'sessions#destroy'
-  match 'productSearch' => 'products#search'
-  match 'categories/updateOrder' => 'categories#updateOrder'
-  match 'products/updateOrder' => 'products#updateOrder'
+  get 'logout' => 'sessions#destroy'
+  get 'productSearch' => 'products#search'
+  post 'productSearch' => 'products#search'
+  get 'categories/updateOrder' => 'categories#updateOrder'
+  get 'products/updateOrder' => 'products#updateOrder'
 
   resources :quote_requests, :sessions, :news_items, :products, :users
 

@@ -1,17 +1,22 @@
 class MainController < ApplicationController      
   def index
-    @products = Product.premier
-    @news_items = NewsItem.find(:all)
+    @products = Product.premier.order('position asc')
+    @news_items = NewsItem.all
     @title = "Welcome"
   end
   
-  def contactUs
-    @title = "Contact Us"
+  def about
+    @title = "About"
+    @categories = Category.all
   end
-  
-  def companyProfile
-    @title = "Company Profile"
-    @categories = Category.find(:all, :order => 'position');
+
+  def brands
+    @title = "Brands"
   end
-  
+
+  def contact
+    @quote_request = QuoteRequest.new    
+    @title = "Contact"
+  end
+    
 end

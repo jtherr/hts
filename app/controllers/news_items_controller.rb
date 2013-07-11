@@ -7,10 +7,10 @@ class NewsItemsController < ApplicationController
   end
   
   def create
-    @news_item = NewsItem.new(params[:news_item])
+    @news_item = NewsItem.new(news_item_params)
     @news_item.save
 
-    @news_items = NewsItem.find(:all)
+    @news_items = NewsItem.all
     render 'createUpdate'
   end
   
@@ -21,16 +21,21 @@ class NewsItemsController < ApplicationController
   
   def update
     @news_item = NewsItem.find(params[:id])
-    @news_item.update_attributes(params[:news_item])
+    @news_item.update_attributes(news_item_params)
 
-    @news_items = NewsItem.find(:all)
+    @news_items = NewsItem.all
     render 'createUpdate'
   end
   
   def destroy
     NewsItem.find(params[:id]).destroy
-    @news_items = NewsItem.find(:all)
+    @news_items = NewsItem.all
     render :partial => 'results'
   end
+  
+  private
+    def news_item_params
+      params.require(:news_item).permit(:date, :description)
+    end
   
 end
