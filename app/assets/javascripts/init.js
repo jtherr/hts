@@ -9,7 +9,8 @@ $(document).ready(function(){
 			linkSelector:			'.link',
 			navPreviousSelector:	'.previous',
 			navNextSelector:		'.next',
-			speed:					'slow'
+			speed:					'slow',
+			advanceDelay:			8000
 		});
 	}
 

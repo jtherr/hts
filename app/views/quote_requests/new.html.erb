@@ -95,7 +95,37 @@
 				York, PA 17406
 			</p>
 			<p>
-				<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;time=&amp;date=&amp;ttype=&amp;q=Herr+Tool+Sales&amp;sll=39.99961,-76.626763&amp;sspn=0.007775,0.020084&amp;ie=UTF8&amp;om=0&amp;cid=39998285,-76626786,486690109932193645&amp;s=AARTsJpokYdNVlubTn0ws6MTTDWPqoBg6A&amp;ll=40.014731,-76.622257&amp;spn=0.046015,0.072956&amp;z=13&amp;iwloc=A&amp;output=embed"></iframe>				
+
+				<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+			    <script>
+					var map;
+					function initialize() {
+				 		var myLatlng = new google.maps.LatLng(39.997808,-76.627664);
+
+						var mapOptions = {		  	
+							zoom: 8,
+						    center: myLatlng,
+						    disableDefaultUI: true,
+						    mapTypeId: google.maps.MapTypeId.ROADMAP
+						};
+						
+						map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+					  
+						var marker = new google.maps.Marker({
+					    	position: myLatlng,
+					    	map: map,
+					    	title: 'HTS'
+					  	});
+					}
+					
+					google.maps.event.addDomListener(window, 'load', initialize);
+				</script>			
+
+    			<div id="map-canvas"></div>
+			</p>
+			
+			<p>
+				<a href="https://www.google.com/maps?q=Herr+Tool+Sales,+Inc.,+4326+Lincoln+Highway,+York,+PA&hl=en&ll=39.998049,-76.624725&spn=0.010323,0.01929&sll=39.999167,-76.627665&sspn=0.010323,0.01929&oq=herr&hq=Herr+Tool+Sales,+Inc.,&hnear=4326+Lincoln+Hwy,+York,+Pennsylvania+17406&t=m&z=16">Large Map</a>
 			</p>
 		</div>
 	</div>
