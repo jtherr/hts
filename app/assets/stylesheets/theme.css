@@ -92,6 +92,7 @@ hr {
 #header {
 	height: 175px;
 	background: url(bg1_05.gif) no-repeat left top;
+	position: relative;
 }
 
 /** LOGO */
@@ -128,28 +129,27 @@ hr {
 	color: #6D6D6D;
 }
 
-/** MENU */
 
-#menu {
-	float: right;
-	width: 500px;
-	height: 175px;
-	padding: 0px 40px 0px 0px;
-}
-
-#menu #phone {
-	float: right;
-	margin: 0px;
-	padding: 30px 0px 0px 0px;
+#phone {
+	position: absolute;
+	top: 25px;
+	right: 38px;
 	font-size: 18px;
 	font-weight: bold;
 	color: #6D6D6D;
 }
 
+/** MENU */
+
+#menu {
+	float: right;
+	width: 500px;
+	margin: 64px 40px 0px 0px;
+}
+
 #menu ul {
 	float: right;
 	margin: 0px;
-	padding: 16px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
 }
@@ -597,6 +597,8 @@ input[type="submit"].link-style3 {
 	font-weight: normal;
 	color: #FFFFFF;
 	border: 0px;
+	height: 37px;
+	cursor: pointer;
 }
 
 .link-style4 {
