@@ -276,8 +276,7 @@ hr {
 #slideshow {
 	position: relative;
 	width: 940px;
-	height: 220px;
-	margin-bottom: 34px;
+	margin-bottom: 24px;
 	overflow: hidden;
 }
 
@@ -355,6 +354,39 @@ hr {
 	right: 0px;
 	background: url(bg2_03.png) no-repeat right top;
 }
+
+#slideshow .indicator
+{
+	margin: 6px auto 0 auto;
+}
+
+#slideshow .indicator ul
+{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+#slideshow .indicator ul li
+{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	text-indent: -9999em;
+	background: #c8c8c8;
+	margin: 0 2px 0 2px;
+	border-radius: 4px;
+	border-bottom: solid 1px #ffffff;
+	border-top: solid 1px #909090;
+}
+
+#slideshow .indicator ul li.active
+{
+	background: #505050;
+	border-top: solid 1px #505050;
+}
+
 
 /** TWO COLUMNS */
 

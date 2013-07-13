@@ -9,6 +9,7 @@ $(document).ready(function(){
 			linkSelector:			'.link',
 			navPreviousSelector:	'.previous',
 			navNextSelector:		'.next',
+			indicatorSelector: 		'.indicator ul li',
 			speed:					'slow',
 			advanceDelay:			8000
 		});
