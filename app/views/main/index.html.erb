@@ -5,25 +5,22 @@
 				<%= image_tag 'lathe.jpg', :width => 940, :height => 220 %>
 				<div class="caption">
 					<h2>Proven Experience</h2>
-					<p>Providing expert consultation on manufacturing and workholding products for over 50 years.</p>
+					<p>Expert consultation on manufacturing and workholding products for over 50 years.</p>
 				</div>
-				<a href="#1" class="link">Continue reading ...</a>
 			</div>
 			<div class="slide">
 				<%= image_tag 'mint.jpg', :width => 940, :height => 220 %>
 				<div class="caption">
-					<h2>Consequat tempus lorem dolor?</h2>
-					<p>Trusted by The United States Mint to provide quality manufacturing advice, consultation, and tooling.</p>
+					<h2>In Mint Shape</h2>
+					<p>Trusted by The United States Mint to provide the highest quality manufacturing tools.</p>
 				</div>
-				<a href="#2" class="link">Continue reading ...</a>
 			</div>
 			<div class="slide">
 				<%= image_tag 'climb.jpg', :width => 940, :height => 220 %>
 				<div class="caption">
 					<h2>Over $1 billion in sales and counting.</h2>
-					<p>Herr Tool continues to provide solutions machine shops need to get the job done.</p>
+					<p>Herr Tool Sales provides machine shops the products and tools needed to be productive.</p>
 				</div>
-				<a href="#3" class="link">Continue reading ...</a>
 			</div>
 		</div>
 	</div>
@@ -40,14 +37,19 @@
 
 <div id="content">
 	<div class="post">
-		<h2 class="title">Consequat maecenas lorem</h2>
+		<h2 class="title">What We Do</h2>
 		<div class="entry">
 			<div id="box1">
-				<h3 class="text1">velit libero commodo ligula</h3>
-				<p class="text2">Dolor sit amet nullam blandi tempus nulla tempus consequat</p>
-				<p><a href="#">
-					<%= image_tag 'homepage03.jpg', :width => 246, :height => 236, :class => 'alightleft' %>
-				</a>Amet donec quis iaculis urna. Curabitur et tortor, dapibus et vestibulum sed, vestibulum amet sem. Maecenas lobortis lobortis vestibulum. Cras ultricies feugiat vehicula. Sed dui lorem, interdum congue molestie sit amet, et auctor vitae libero. Maecenas molestie iaculis. Donec quis iaculis urna. Curabitur sed tortor, dapibus et vestibulum sed amet lorem ipsum dolor sit amet nullam veroeros.</p>
+				<p>
+					<a href="#"><%= image_tag 'homepage03.jpg', :width => 246, :height => 236, :class => 'alignleft' %></a>
+				</p>
+
+				<p>
+					Herr Tool Sales is an international distributor of metal working and manufacturing tools and supplies. 
+					We have continued to provide expert technical guidance on all types of metal working products and brands 
+					for over 50 years. Take a look at the <a href="<%= url_for '/brands' %>">brands</a> we represent. 
+				</p>
+				
 				<p><span><a href="#" class="link-style1">Continue Reading</a></span><span><a href="#" class="link-style2">Comments (33)</a></span></p>
 			</div>
 
@@ -57,22 +59,12 @@
 </div>
 <div id="sidebar">
 	<div id="box4">
-		<h2>Ipsum sed libero</h2>
+		<h2>Contact Us</h2>
 		<div class="content">
 			<p><a href="#"><%= image_tag 'homepage15.jpg', :width => 210, :height => 90 %></a></p>
 			<p>Donec quis iaculis urna. Curabitur sed, vestibulum nec sem. dui lorem, interdum congue molestie sit amet, et auctor vitae libero consequat.</p>
-		</div>
-	</div>
-	<div id="box5">
-		<h2>Curabitur dui urna</h2>
-		<div class="content">
-			<ul class="style2">
-				<li class="first"><a href="#">Donec quis iaculis curabitur</a></li>
-				<li><a href="#">Vestibulum nec sem dui lorem</a></li>
-				<li><a href="#">Interdum congue sed amet,</a></li>
-				<li><a href="#">Auctor vitae libero consequat</a></li>
-				<li><a href="#">Consequat etiam lorem ipsum</a></li>
-			</ul>
+		
+			<p><a href="<%= url_for '/contact' %>" class="link-style3"><span>Request a Quote</span></a></p>
 		</div>
 	</div>
 </div>

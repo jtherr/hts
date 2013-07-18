@@ -3,14 +3,13 @@
 		<h2 class="title">Contact</h2>
 		<div class="entry">
 			<div id="box1">
-				<h3 class="text1">Message Us</h3>
-				<p class="text2">Dolor sit amet nullam blandi tempus nulla tempus consequat</p>
+				<h3 class="text1">Send Us A Message</h3>
+				<p class="text2">Get tooling advice, request a quote, or ask a general question.</p>
 						
 				<%= form_for @quote_request do |f| %>
 					
 					<p>
-						To request a quote, please supply us with the following information. 
-						Once we receive your request, we will contact you as soon as possible.
+						Please send us the following information and we will contact you as soon as possible.
 					</p>
 						
 					<% if @quote_request.errors.any? %>
@@ -91,6 +90,7 @@
 		<h2>Address</h2>
 		<div class="content">
 			<p>
+				Herr Tool Sales, Inc.<br>
 				4326 Lincoln Hwy<br>
 				York, PA 17406
 			</p>
@@ -103,7 +103,7 @@
 				 		var myLatlng = new google.maps.LatLng(39.997808,-76.627664);
 
 						var mapOptions = {		  	
-							zoom: 8,
+							zoom: 5,
 						    center: myLatlng,
 						    disableDefaultUI: true,
 						    mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -125,7 +125,7 @@
 			</p>
 			
 			<p>
-				<a href="https://www.google.com/maps?q=Herr+Tool+Sales,+Inc.,+4326+Lincoln+Highway,+York,+PA&hl=en&ll=39.998049,-76.624725&spn=0.010323,0.01929&sll=39.999167,-76.627665&sspn=0.010323,0.01929&oq=herr&hq=Herr+Tool+Sales,+Inc.,&hnear=4326+Lincoln+Hwy,+York,+Pennsylvania+17406&t=m&z=16" target="_blank">Large Map</a>
+				<a href="https://www.google.com/maps?q=Herr+Tool+Sales,+Inc.,+4326+Lincoln+Highway,+York,+PA&hl=en&ll=39.998049,-76.624725&spn=0.010323,0.01929&sll=39.999167,-76.627665&sspn=0.010323,0.01929&oq=herr&hq=Herr+Tool+Sales,+Inc.,&hnear=4326+Lincoln+Hwy,+York,+Pennsylvania+17406&t=m&z=7" target="_blank">Large Map</a>
 			</p>
 		</div>
 	</div>

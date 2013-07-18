@@ -70,31 +70,78 @@
 			</ul>
 		</div>
 		<div id="box8">
-			<h2>Amet lobortis lorem</h2>
-			<div>
-				<ul class="style4">
-					<li class="first"><a href="#">Dapibus et vestibulum sem</a></li>
-					<li><a href="#">Quis iaculis urna curabitur et tortor</a></li>
-					<li><a href="#">Maecenas llobortis vestibulum</a></li>
-					<li><a href="#">Interdum congue sit amet auctor</a></li>
-					<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-				</ul>
+			<h2>Contact Information</h2>
+			<div class="content">
+				<p>
+					Herr Tool Sales, Inc.<br>
+					4326 Lincoln Hwy<br>
+					York, PA 17406
+				</p>
+				<p>
+					(800) 307-3518
+				</p>
 			</div>
 		</div>
 		<div id="box9">
-			<h2>Contact Us</h2>
+			<h2>Map</h2>
 			<div class="content">
-				<ul class="style5">
-					<li><a href="#"><%= image_tag 'homepage17.gif', :width => 32, :height => 32 %></a></li>
-					<li><a href="#"><%= image_tag 'homepage18.gif', :width => 32, :height => 32 %></a></li>
-					<li><a href="#"><%= image_tag 'homepage19.gif', :width => 32, :height => 32 %></a></li>
-					<li><a href="#"><%= image_tag 'homepage20.gif', :width => 32, :height => 32 %></a></li>
-					<li><a href="#"><%= image_tag 'homepage21.gif', :width => 32, :height => 32 %></a></li>
-				</ul>
-				<p>Lorem ipsum dolor sit amet et
-					arcu blandit pretium? Et auctor
-					congue urna.</p>
-				<p><a href="#" class="link-style4">information@untitled.tld</a></p>
+				
+				<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+			    <script>
+					var staticMap;
+					function initializeStatic() {
+				 		var myLatlng = new google.maps.LatLng(39.997808,-76.627664);
+
+						var styles = [
+						    {
+						      featureType: "all",
+						      elementType: "all",
+						      stylers: [
+						        { saturation: -100 } // <-- THIS
+						      ]
+						    }
+						];
+
+						var mapOptions = {		  	
+							zoom: 5,
+						    center: myLatlng,
+						    disableDefaultUI: true,
+						    mapTypeControlOptions: {
+						         mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'graymap']
+						    }
+						};
+						
+						staticMap = new google.maps.Map(document.getElementById('map-static'), mapOptions);
+					  
+						var mapType = new google.maps.StyledMapType(styles, { name:"Grayscale" });    
+						staticMap.mapTypes.set('graymap', mapType);
+						staticMap.setMapTypeId('graymap');
+					  
+						var marker = new google.maps.Marker({
+					    	position: myLatlng,
+					    	map: staticMap,
+					    	title: 'HTS'
+					  	});
+					}
+					
+					google.maps.event.addDomListener(window, 'load', initializeStatic);
+				</script>			
+
+    			<div id="map-static"></div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<a href="<%= url_for '/contact' %>">
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center=Herr+Tool+Sales,+Inc.,+4326+Lincoln+Highway,+York,+PA&zoom=5&size=180x100&maptype=roadmap&markers=color:gray%7Ccolor:gray%7Clabel:C%7C39.998049,-76.624725&sensor=false&style=feature:all%7Celement:all%7Csaturation:-100" width="100%" height="100px" />
+				</a>
 			</div>
 		</div>
 	</div>
