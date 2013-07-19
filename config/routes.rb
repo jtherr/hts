@@ -8,6 +8,8 @@ Hts::Application.routes.draw do
   get 'brands' => 'main#brands'
   get 'about' => 'main#about'
   get 'contact' => 'quote_requests#new'
+  post 'send_message' => 'quote_requests#create'
+  get 'send_message' => 'quote_requests#new'
 
   get 'logout' => 'sessions#destroy'
   get 'productSearch' => 'products#search'

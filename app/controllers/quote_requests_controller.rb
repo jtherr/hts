@@ -1,7 +1,7 @@
 class QuoteRequestsController < ApplicationController
-  before_filter :login_required, :only => [ :index, :desroy ]
 
   def index
+    redirect_to :action => 'new'
   end
 
   def new
@@ -14,14 +14,14 @@ class QuoteRequestsController < ApplicationController
     @quote_request.date = DateTime.now
 
     # if hts is not blank, it is likely a robot, so don't save
-    if params[:hts] == "" && @quote_request.save
+    if params[:hts] == "" && @quote_request.valid?
       QuoteMailer.quote_request_email(@quote_request).deliver
       @title = "Request Submitted"    
     
       redirect_to root_url, :notice => "Thank You - We will contact you shortly"
     else
       @title = "Request Quote"
-      render :action => 'new'
+      render 'new'
     end
   end
   

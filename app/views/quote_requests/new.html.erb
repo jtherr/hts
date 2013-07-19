@@ -6,7 +6,7 @@
 				<h3 class="text1">Send Us A Message</h3>
 				<p class="text2">Get tooling advice, request a quote, or ask a general question.</p>
 						
-				<%= form_for @quote_request do |f| %>
+				<%= form_for @quote_request, :url => '/send_message' do |f| %>
 					
 					<p>
 						Please send us the following information and we will contact you as soon as possible.
