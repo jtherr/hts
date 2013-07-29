@@ -15,7 +15,7 @@ body {
 h1, h2, h3 {
 	margin: 0px;
 	padding: 0px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 }
 
 p, ol, ul {
@@ -142,15 +142,17 @@ hr {
 
 #menu {
 	float: right;
-	width: 490px;
-	margin: 64px 40px 0px 0px;
+	width: 500px;
+	margin: 64px 0px 0px 0px;
 }
 
 #menu ul {
-	float: right;
+	float: left;
 	margin: 0px;
 	list-style: none;
 	line-height: normal;
+	width: 100%;
+	padding: 0px 0px 0px 10px;
 }
 
 #menu li {
@@ -163,7 +165,7 @@ hr {
 	line-height: 88px;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-weight: normal;
 	font-size: 17px;
 	color: #FFFFFF;
@@ -314,7 +316,7 @@ hr {
 	padding: 17px 0px 0px 0px;
 	text-transform: uppercase;
 	letter-spacing: -1px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 30px;
 	color: #ffffff;
 }
@@ -397,7 +399,7 @@ hr {
 	margin: 0px;
 	padding: 0px 0px 20px 0px;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 21px;
 	font-weight: normal;
 	color: #2D2D2D;
@@ -425,7 +427,7 @@ hr {
 	background: url(homepage16.gif) repeat-x left top;
 	line-height: 47px;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 15px;
 	font-weight: normal;
 	color: #FFFFFF;
@@ -549,7 +551,7 @@ hr {
 	margin: 0px;
 	padding: 0px;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 38px;
 	font-weight: normal;
 	color: #2D2D2D;
@@ -576,7 +578,7 @@ hr {
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	color: #FFFFFF;
@@ -593,7 +595,7 @@ hr {
 	text-decoration: none;
 	text-align: center;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	color: #FFFFFF;
@@ -615,7 +617,7 @@ hr {
 	text-decoration: none;
 	text-align: center;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	color: #FFFFFF;
@@ -629,7 +631,7 @@ input[type="submit"].link-style3 {
 	text-decoration: none;
 	text-align: center;
 	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', Impact, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	color: #FFFFFF;

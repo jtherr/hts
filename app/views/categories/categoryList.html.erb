@@ -12,8 +12,10 @@
 						<ul class="style1">
 							<% @categories[0..midpoint].each do |category| %>
 								<li>
-									<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
-									<h3><%= category.name %></h3>
+									<%= link_to(category_products_path(category)) do %>
+										<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
+										<h3><%= category.name %></h3>
+									<% end %>
 								</li>
 							<% end %>
 						</ul>							
@@ -22,8 +24,10 @@
 						<ul class="style1">
 							<% @categories[(midpoint+1)..@categories.length].each do |category| %>
 								<li>
-									<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
-									<h3><%= category.name %></h3>
+									<%= link_to(category_products_path(category)) do %>
+										<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
+										<h3><%= category.name %></h3>
+									<% end %>
 								</li>
 							<% end %>
 						</ul>				

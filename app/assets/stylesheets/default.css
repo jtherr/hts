@@ -5,9 +5,8 @@ body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; }
 #mainContainer { float: left; width: 750px;  }
 
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
-table tr { background-color: #D7E2F0; }
-table tr th { padding: 3px 10px 3px 3px; background-color: white; }
-table tr td { padding: 3px 10px 3px 3px; border-bottom: 1px solid white; }
+table tr th { padding: 3px 10px 3px 3px; color: white; text-align: left; background: url('homepage01.gif') repeat-x left top; }
+table tr td { padding: 3px 10px 3px 3px; border-bottom: 1px solid #D7E2F0; }
 table tr td.date { width: 120px; }
 table tr td.icon { width: 16px; }
 

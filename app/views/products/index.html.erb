@@ -1,14 +1,40 @@
-
-This product linecard contains only our major products. Our complete list of offerings is 
-immensely larger. Please ask and we'll do our absolute best to find a solution for you.
-<br /><br />
-
-<div id="productResults">
-	<%= render :partial => 'results' %>
-</div>
-
-<div class="categoryLinks">
-	<% @categories.each_with_index do |category, i| %>
-		<%= link_to(category.name, category_products_path(category)) %><% if i < @categories.size - 1 %> | <% end %>
-	<% end %>
+<div class="two-column2">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><%= @category.name %></h2>
+			<div class="entry">
+				<div id="box1">
+	
+					This product linecard contains only our major products. Our complete list of offerings is 
+					immensely larger. Please ask and we'll do our absolute best to find a solution for you.
+					<br /><br />
+					
+					<div id="productResults">
+						<%= render :partial => 'results' %>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div id="sidebar">
+		<div id="box4">
+			<h2>Categories</h2>
+			<div class="content">
+				<ul class="style2">
+					<% @categories.each_with_index do |category, i| %>
+						<li><%= link_to(category.name, category_products_path(category)) %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		<div id="box5">
+			<h2>Contact Us</h2>
+	
+			<div class="content">
+				<p>We represent many distributors and manufacturers and can provide discounts you can't find purchasing direct. Click below to request a quote.</p>
+			
+				<p><a href="<%= url_for '/contact' %>" class="link-style3"><span>Request a Quote</span></a></p>
+			</div>
+		</div>
+	</div>
 </div>
