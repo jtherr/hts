@@ -6,7 +6,7 @@ class QuoteRequestsController < ApplicationController
 
   def new
     @quote_request = QuoteRequest.new
-    @title = "Request Quote"
+    @title = "Contact"
   end
   
   def create
@@ -20,7 +20,7 @@ class QuoteRequestsController < ApplicationController
     
       redirect_to root_url, :notice => "Thank You - We will contact you shortly"
     else
-      @title = "Request Quote"
+      @title = "Contact"
       render 'new'
     end
   end

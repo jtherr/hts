@@ -2,7 +2,6 @@ class MainController < ApplicationController
   def index
     @products = Product.premier.order('position asc')
     @news_items = NewsItem.all
-    @title = "Welcome"
   end
   
   def about
