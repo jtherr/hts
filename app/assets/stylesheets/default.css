@@ -46,11 +46,6 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 
 #container #header { background:  url('/assets/header.gif') no-repeat; height: 144px; }
 
-#container #header #search { height: 111px; float: right; text-align: right; margin: 3px 3px 0px 0px; color: white; font-size: 12px; width: 100%; }
-*+html #container #header #search form { margin-right: 3px; }
-#container #header #search .searchInput { width: 100px; }
-#container #header #search .searchButton { font-size: 11px; padding: 1px; }
-
 #container #header #title { background:  url('/assets/titleMain.gif') repeat; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: italic; font-weight: bold; font-size: 18px; float: left; color: white; padding: 5px 5px 0px 10px; background-color: #790000; height: 25px; margin-left: 150px; }
 #container #header #titleEnd { float: left; background:  url('/assets/titleEnd.gif') no-repeat; width: 30px; height: 30px; }
 
@@ -121,11 +116,14 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 #productsMain #left ul li a { text-decoration: none; }
 #productsMain #right { background: url('/assets/categories.gif') no-repeat; width: 339px; height: 356px; float: right; }
 
-.importantMessage { font-weight: bold; color: red; font-size: 16px; }
+.importantMessage { color: red; }
 
 .lowercase { text-transform: lowercase; }
 
 #map-canvas { width: 100%; height: 200px; }
 
 ul.bullets li { line-height: 170%; }
+
+#search .searchInput { width: 175px; font-size: 16px; }
+#search .searchButton { width: 24px; height: 24px; margin-bottom: -6px; }
 

@@ -3,16 +3,21 @@ class ProductsController < ApplicationController
   
   def index
     @category = Category.find(params[:category_id])
+    @resultsTitle = @category.name
     @products = @category.products.sorted
     @categories = Category.all
     @title = "Products"
   end
   
   def search
+    searchTerm = ''
+    
     if (params[:main])
-      @search = '%' + params[:main][:search] + '%'
+      searchTerm = params[:main][:search]
+      @search = '%' + searchTerm + '%'
     end
     
+    @resultsTitle = 'Search Results for "' + searchTerm + '"'
     @products = Product.sorted.search(@search)
     @categories = Category.all
     @title = "Products"

@@ -1,7 +1,7 @@
 <div class="two-column2">
 	<div id="content">
 		<div class="post">
-			<h2 class="title"><%= @category.name %></h2>
+			<h2 class="title"><%= @resultsTitle %></h2>
 			<div class="entry">
 				<div id="box1">
 	
@@ -27,6 +27,19 @@
 				</ul>
 			</div>
 		</div>
+		
+		<div id="box5">
+			<h2>Search Products</h2>
+			<div class="content">	
+				<div id="search">
+					<%= form_tag('/productSearch') %>
+						<%=text_field :main, :search, :class => 'searchInput' %>
+						<%=image_submit_tag "homepage20.gif", :class => 'searchButton' %>
+					</form>
+				</div>
+			</div>
+		</div>
+		
 		<div id="box5">
 			<h2>Contact Us</h2>
 	
