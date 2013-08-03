@@ -127,3 +127,8 @@ ul.bullets li { line-height: 170%; }
 #search .searchInput { width: 175px; font-size: 16px; }
 #search .searchButton { width: 24px; height: 24px; margin-bottom: -6px; }
 
+#brand-images { width 100%; float: left; }
+#brand-images .column { width: 150px; float: left; margin: 0px 0px 0px 78px; }
+#brand-images .column.first { margin: 0px; }
+#brand-images .column img { width: 100%; margin-bottom: 30px; }
+
