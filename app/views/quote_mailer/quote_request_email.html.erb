@@ -1,20 +1,20 @@
 <div style="width: 100%; padding: 4px 0px; float: left;">
 	<label style="float: left; width: 100px; margin-right: 10px; font-weight: bold;">Name</label>
-	<div style="float: left; width: 500px;">
+	<div style="float: left; width: 450px;">
 		<%=@quote_request.name %>
 	</div>
 </div>
 
 <div style="width: 100%; padding: 4px 0px; float: left;">
 	<label style="float: left; width: 100px; margin-right: 10px; font-weight: bold;">Company</label>
-	<div style="float: left; width: 500px;">
+	<div style="float: left; width: 450px;">
 		<%=@quote_request.company %>
 	</div>
 </div>
 
 <div style="width: 100%; padding: 4px 0px; float: left;">
 	<label style="float: left; width: 100px; margin-right: 10px; font-weight: bold;">Phone</label>
-	<div style="float: left; width: 500px;">
+	<div style="float: left; width: 450px;">
 		<%=@quote_request.phone %>
 	</div>
 </div>
@@ -22,7 +22,7 @@
 <% if !@quote_request.fax.blank? %>
 	<div style="width: 100%; padding: 4px 0px; float: left;">
 		<label style="float: left; width: 100px; margin-right: 10px; font-weight: bold;">Fax</label>
-		<div style="float: left; width: 500px;">
+		<div style="float: left; width: 450px;">
 			<%=@quote_request.fax %>
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 <% if !@quote_request.email.blank? %>
 	<div style="width: 100%; padding: 4px 0px; float: left;">
 		<label style="float: left; width: 100px; margin-right: 10px; font-weight: bold;">Email</label>
-		<div style="float: left; width: 500px;">
+		<div style="float: left; width: 450px;">
 			<%=mail_to @quote_request.email %>
 		</div>
 	</div>
@@ -40,7 +40,7 @@
 <% if !@quote_request.additional.blank? %>
 	<div style="width: 100%; padding: 4px 0px; float: left;">
 		<label style="float: left; width: 100px; margin-right: 10px; font-weight: bold;">Message</label>
-		<div style="float: left; width: 500px;">
+		<div style="float: left; width: 450px;">
 			<%=@quote_request.additional %>
 		</div>
 	</div>
