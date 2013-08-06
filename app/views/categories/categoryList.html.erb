@@ -3,36 +3,18 @@
 		<h2 class="title">Products</h2>
 		<div class="entry">
 			<div id="box1">
-				<h3 class="text1">Categories</h3>
+				<h3 class="text1">Categories</h3>						
 
-				<% midpoint = (@categories.length / 2).round - 1 %>
-						
-				<div id="two-columns">
-					<div id="column1">									
-						<ul class="style1">
-							<% @categories[0..midpoint].each do |category| %>
-								<li>
-									<%= link_to(category_products_path(category)) do %>
-										<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
-										<h3><%= category.name %></h3>
-									<% end %>
-								</li>
+				<div id="categories">
+					<% @categories.each do |category| %>
+						<div class="category">
+							<%= link_to(category_products_path(category)) do %>
+								<%= image_tag "categories/#{category.name}.jpg" %>
+								<div class="caption"><%= category.name %></div>
 							<% end %>
-						</ul>							
-					</div>
-					<div id="column2">
-						<ul class="style1">
-							<% @categories[(midpoint+1)..@categories.length].each do |category| %>
-								<li>
-									<%= link_to(category_products_path(category)) do %>
-										<%= image_tag 'homepage06.jpg', :width => 90, :height => 90 %>
-										<h3><%= category.name %></h3>
-									<% end %>
-								</li>
-							<% end %>
-						</ul>				
-					</div>
-				</div>					
+						</div>
+					<% end %>
+				</div>			
 			</div>
 		</div>
 	</div>
