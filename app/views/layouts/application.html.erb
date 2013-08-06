@@ -48,6 +48,20 @@
 			<div id="page" class="container">
 				<div id="page-bgtop">
 					<div id="page-bgbtm">
+												
+						<% if notice %>
+							<div id="notice" class="container">
+								<div class="ui-widget">
+									<div class="ui-state-highlight ui-corner-all">
+										<p>
+											<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+											<%= notice %>
+										</p>
+									</div>
+								</div>
+							</div>
+						<% end %>
+						
 						<%= yield  %>
 						
 						<div class="clearfix">&nbsp;</div>
