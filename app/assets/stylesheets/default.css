@@ -116,7 +116,7 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 #productsMain #left ul li a { text-decoration: none; }
 #productsMain #right { background: url('/assets/categories.gif') no-repeat; width: 339px; height: 356px; float: right; }
 
-.importantMessage { color: red; }
+.importantMessage { color: #990000; font-style: italic; }
 
 .lowercase { text-transform: lowercase; }
 

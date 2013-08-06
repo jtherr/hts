@@ -1,6 +1,6 @@
 
 <% if @products.size == 0 %>
-	<div class="importantMessage">No products were found</div>
+	<div class="importantMessage">No products were found. Please <a href="<%= url_for '/contact' %>">contact us</a> to inquire further.</div>
 <% else %>	
 	
 	<table>
