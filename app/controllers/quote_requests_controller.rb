@@ -14,7 +14,7 @@ class QuoteRequestsController < ApplicationController
     @quote_request.date = DateTime.now
 
     # if hts is not blank, it is likely a robot, so don't save
-    if params[:hts] == "" && @quote_request.valid?
+    if validate_recap(params, @quote_request.errors) && @quote_request.valid?
       QuoteMailer.quote_request_email(@quote_request).deliver
       @title = "Request Submitted"    
     

@@ -50,3 +50,4 @@ gem 'tilt'
 gem 'treetop'
 gem 'tzinfo'
 
+gem 'ruby-recaptcha'

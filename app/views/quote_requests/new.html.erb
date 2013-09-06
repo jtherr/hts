@@ -55,13 +55,13 @@
 					</div>
 						
 					<div class="field">
+						<label>Please Enter Captcha</label>
+						<div class="value"><%= raw(get_captcha(:options => {:theme => 'clean'})) %></div>
+					</div>
+						
+					<div class="field">
 						<label>&nbsp;</label>
 						<div class="value"><%= f.submit "Send Message", :class => 'link-style3' %></div>
-					</div>
-				
-					<div class="field" style="display: none;">
-						<label>HTS</label>
-						<input type="hidden" id="hts" name="hts" value="" />
 					</div>
 				
 				<% end %>
