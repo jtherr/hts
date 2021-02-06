@@ -34,10 +34,10 @@ class QuoteRequestsController < ApplicationController
   end
 
   def validate_captcha(g_recaptcha_response)
-    api_response = Net::HTTP.post('www.google.com', '/recaptcha/api/siteverify', 443, body: {
+    api_response = Net::HTTP.post_form(URI('https://www.google.com/recaptcha/api/siteverify'),
                      secret: RECAPTCHA_PRIV_KEY,
-                     response: recaptcha_response
-                   })
+                     response: g_recaptcha_response
+                   )
 
     api_response.body['success']
   end
