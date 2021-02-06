@@ -1,3 +1,5 @@
+require 'net/http'
+
 class QuoteRequestsController < ApplicationController
 
   def index
@@ -14,7 +16,7 @@ class QuoteRequestsController < ApplicationController
     @quote_request.date = DateTime.now
 
     # if hts is not blank, it is likely a robot, so don't save
-    if validate_recap(params, @quote_request.errors) && @quote_request.valid?
+    if validate_captcha(params['g-recaptcha-response']) && @quote_request.valid?
       QuoteMailer.quote_request_email(@quote_request).deliver
       @title = "Request Submitted"    
     
@@ -26,7 +28,17 @@ class QuoteRequestsController < ApplicationController
   end
   
   private
-    def quote_request_params
-      params.require(:quote_request).permit(:name, :company, :phone, :email, :fax, :street, :city, :state, :zip, :additional)
-    end
+
+  def quote_request_params
+    params.require(:quote_request).permit(:name, :company, :phone, :email, :fax, :street, :city, :state, :zip, :additional)
+  end
+
+  def validate_captcha(g_recaptcha_response)
+    api_response = Net::HTTP.post('www.google.com', '/recaptcha/api/siteverify', 443, body: {
+                     secret: RECAPTCHA_PRIV_KEY,
+                     response: recaptcha_response
+                   })
+
+    api_response.body['success']
+  end
 end

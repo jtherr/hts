@@ -61,7 +61,19 @@
 						
 					<div class="field">
 						<label>&nbsp;</label>
-						<div class="value"><%= f.submit "Send Message", :class => 'link-style3' %></div>
+						<div class="value">						
+							<script>
+							  function onSubmit(token) {
+							    document.getElementById("new_quote_request").submit();
+							  }
+							</script>
+
+							<button class="g-recaptcha" 
+							        data-sitekey="6LdAAE0aAAAAAJ-08lbudN7CUnrlkTlR0cV-ljCz" 
+							        data-callback='onSubmit' 
+							        data-action='submit'
+							        class='link-style3'>Send Message</button>
+						</div>
 					</div>
 				
 				<% end %>

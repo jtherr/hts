@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  include ReCaptcha::AppHelper
   
   def login_required
     unless logged_in?

@@ -50,7 +50,3 @@ module Hts
     config.assets.version = '1.0'
   end
 end
-
-ReCaptcha::RCC_PUB='6LdY8uYSAAAAAD9SVyevDBphQvllOJEjAUGCYSGk'
-ReCaptcha::RCC_PRIV='6LdY8uYSAAAAAMrHvInU98-4whYvKTO86lXLwyFm'
-

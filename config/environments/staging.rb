@@ -63,6 +63,3 @@ Hts::Application.configure do
 
   config.eager_load = true
 end
-
-ReCaptcha::RCC_PUB='6LcXFecSAAAAAAdfoj-TsapMxj_pHCvQDvjJYgiT'
-ReCaptcha::RCC_PRIV='6LcXFecSAAAAAFgduUtrZlIrx3oQXPiC4MrbtiJ2'

@@ -18,3 +18,4 @@
 /vendor/bundle
 
 /config/database.yml
+/config/initializers/secrets.rb
