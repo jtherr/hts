@@ -60,7 +60,7 @@ table tr.selectable:hover { background-color: #C9D7EA; cursor: pointer; }
 
 ul.bullets li { line-height: 170%; }
 
-#search .searchInput { width: 175px; font-size: 16px; }
+#search .searchInput { width: 170px; font-size: 16px; }
 #search .searchButton { width: 24px; height: 24px; margin-bottom: -6px; }
 
 #brand-images { width 100%; float: left; }
