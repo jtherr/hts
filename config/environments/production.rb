@@ -1,3 +1,5 @@
+require 'yaml'
+
 Hts::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -62,4 +64,9 @@ Hts::Application.configure do
   config.active_support.deprecation = :notify
 
   config.eager_load = true
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = YAML.load(File.read("../email.yml"))
 end
