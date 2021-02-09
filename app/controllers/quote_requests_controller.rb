@@ -39,6 +39,15 @@ class QuoteRequestsController < ApplicationController
                      response: g_recaptcha_response
                    )
 
-    api_response.body['success']
+    logger.info "Validate Captcha Response: #{api_response}"
+
+    success = api_response.body['success']
+    score = api_response.body['score']
+
+    valid = success && score > 0.5
+
+    logger.warn "Rejecting quote request due to low recaptcha score" unless valid
+
+    valid    
   end
 end
