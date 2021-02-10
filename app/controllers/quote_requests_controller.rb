@@ -40,7 +40,7 @@ class QuoteRequestsController < ApplicationController
                      response: g_recaptcha_response
                    )
 
-    api_response_hash = JSON.parse(api_response)
+    api_response_hash = JSON.parse(api_response.body)
 
     logger.info "Validate Captcha Response: #{api_response_hash}"
 
