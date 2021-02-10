@@ -1,4 +1,5 @@
 require 'net/http'
+require 'json'
 
 class QuoteRequestsController < ApplicationController
 
@@ -39,12 +40,14 @@ class QuoteRequestsController < ApplicationController
                      response: g_recaptcha_response
                    )
 
-    logger.info "Validate Captcha Response: #{api_response}"
+    api_response_hash = JSON.parse(api_response)
 
-    success = api_response.body['success']
-    score = api_response.body['score']
+    logger.info "Validate Captcha Response: #{api_response_hash}"
 
-    valid = success && score > 0.5
+    success = api_response_hash['success']
+    score = api_response_hash['score']
+
+    valid = success && score.to_f > 0.5
 
     logger.warn "Rejecting quote request due to low recaptcha score" unless valid
 
